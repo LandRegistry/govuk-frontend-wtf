@@ -26,3 +26,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 - [Matt Shaw](https://github.com/matthew-shaw) (Primary maintainer)
 - [Andy Mantell](https://github.com/andymantell) (Original author)
+- [Hugo Baldwin](https://github.com/byzantime)

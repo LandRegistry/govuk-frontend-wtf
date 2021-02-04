@@ -33,8 +33,6 @@ This is then rendered in your jinja templates as follows which is completely sta
 
 Where this then deviates from Flask-WTF is the ability to pass additional parameters to the underlying GOV.​UK jinja macros. For example:
 
-
-
 ```
 {{ form['string_field'](params={
   'hint': {

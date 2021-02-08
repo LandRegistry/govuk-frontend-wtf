@@ -1,18 +1,6 @@
-from server.custom_extensions.wtforms_helpers.gov_form_base import (
-    GovFormBase,
-    GovIterableBase,
-)
-from landregistry.exceptions import ApplicationError
-from wtforms.widgets.core import (
-    FileInput,
-    Input,
-    PasswordInput,
-    Select,
-    SubmitInput,
-    TextArea,
-    TextInput,
-)
+from wtforms.widgets.core import FileInput, Input, PasswordInput, Select, SubmitInput, TextArea, TextInput
 
+from govuk_frontend_wtf.gov_form_base import GovFormBase, GovIterableBase
 
 """Lifted from WTForms and modified to generate GOV.UK markup
 
@@ -187,7 +175,7 @@ class GovSelect(GovFormBase, Select):
 
     def __call__(self, field, **kwargs):
         if self.multiple:
-            raise ApplicationError(
+            raise Exception(
                 "Please do not render mutliselect elements as a select box"
                 " - you should use checkboxes instead in order to comply with"
                 " the GOV.UK service manual"

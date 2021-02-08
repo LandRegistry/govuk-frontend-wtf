@@ -1,7 +1,7 @@
 from flask import render_template
 from jinja2 import Markup
 
-from server.custom_extensions.wtforms_helpers.main import merger
+from govuk_frontend_wtf.main import merger
 
 
 class GovFormBase(object):

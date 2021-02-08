@@ -18,7 +18,7 @@ class GovInput(GovFormBase, Input):
     to provide the ``value=`` HTML attribute.
     """
 
-    template = "wtforms_gov/input.html"
+    template = "govuk_frontend_wtf/input.html"
 
     def __call__(self, field, **kwargs):
         kwargs.setdefault("id", field.id)
@@ -61,7 +61,7 @@ class GovCheckboxesInput(GovIterableBase):
     construct of their own.
     """
 
-    template = "wtforms_gov/checkboxes.html"
+    template = "govuk_frontend_wtf/checkboxes.html"
     input_type = "checkbox"
 
 
@@ -100,7 +100,7 @@ class GovCheckboxInput(GovCheckboxesInput):
 
 
 class GovRadioInput(GovIterableBase):
-    template = "wtforms_gov/radios.html"
+    template = "govuk_frontend_wtf/radios.html"
     input_type = "radio"
 
 
@@ -110,7 +110,7 @@ class GovFileInput(GovInput, FileInput):
     :param multiple: allow choosing multiple files
     """
 
-    template = "wtforms_gov/file-upload.html"
+    template = "govuk_frontend_wtf/file-upload.html"
 
     def __call__(self, field, **kwargs):
         # browser ignores value of file input for security
@@ -129,7 +129,7 @@ class GovSubmitInput(GovInput, SubmitInput):
     data on the field.
     """
 
-    template = "wtforms_gov/button.html"
+    template = "govuk_frontend_wtf/button.html"
 
     def __call__(self, field, **kwargs):
         return super().__call__(field, **kwargs)
@@ -149,7 +149,7 @@ class GovTextArea(GovFormBase, TextArea):
     `rows` and `cols` ought to be passed as keyword args when rendering.
     """
 
-    template = "wtforms_gov/textarea.html"
+    template = "govuk_frontend_wtf/textarea.html"
 
     def __call__(self, field, **kwargs):
         kwargs.setdefault("id", field.id)
@@ -171,7 +171,7 @@ class GovSelect(GovFormBase, Select):
     `(value, label, selected)`.
     """
 
-    template = "wtforms_gov/select.html"
+    template = "govuk_frontend_wtf/select.html"
 
     def __call__(self, field, **kwargs):
         if self.multiple:

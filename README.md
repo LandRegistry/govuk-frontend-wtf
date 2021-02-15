@@ -40,7 +40,7 @@ app.jinja_loader = ChoiceLoader(
 WTFormsHelpers(app)
 ```
 
-Import and include the relevant widget on each field in your form class (see table below). Note that `widget=GovTextInput()` is the only difference relative to a standard Flask-WTF form definition.
+Import and include the relevant widget on each field in your form class (see [table below](#widgets)). Note that `widget=GovTextInput()` is the only difference relative to a standard Flask-WTF form definition.
 
 ```python
 from flask_wtf import FlaskForm

@@ -12,7 +12,7 @@
 
 ## How to use
 
-For a more detailed demo please refer to the [demo app](https://github.com/LandRegistry/govuk-frontend-wtf-demo) source code.
+For a more detailed example please refer to the [demo app](https://github.com/LandRegistry/govuk-frontend-wtf-demo) source code.
 
 After running `pip install govuk-frontend-wtf`, ensure that you tell Jinja where to load the templates from using the `PackageLoader` and register `WTFormsHelpers` as follows:
 
@@ -62,7 +62,28 @@ class ExampleForm(FlaskForm):
     submit = SubmitField("Continue", widget=GovSubmitInput())
 ```
 
-In your template make sure to set the page title appropriately if there are any form validation errors. Also include the `govukErrorSummary()` component at the start of the `content` block. You can pass additional parameters or attributes to your form field as per the associated macro's parameters.
+Create a route to serve your form and template.
+
+```python
+from flask import redirect, render_template, url_for
+
+from app import app
+from app.forms import ExampleForm
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+
+@app.route("/example-form", methods=["GET", "POST"])
+def example():
+    form = ExampleForm()
+    if form.validate_on_submit():
+        return redirect(url_for("index"))
+    return render_template("example_form.html", form=form)
+```
+
+Finally, In your template make sure to set the page title appropriately if there are any form validation errors. Also include the `govukErrorSummary()` component at the start of the `content` block. You can pass additional parameters or attributes to your form field as per the associated macro's parameters.
 
 ```html
 {% extends "base.html" %}
@@ -101,27 +122,6 @@ In your template make sure to set the page title appropriately if there are any 
     </div>
 </div>
 {% endblock %}
-```
-
-Finally, create a route to serve your form and template.
-
-```python
-from flask import redirect, render_template, url_for
-
-from app import app
-from app.forms import ExampleForm
-
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-
-@app.route("/example-form", methods=["GET", "POST"])
-def example():
-    form = ExampleForm()
-    if form.validate_on_submit():
-        return redirect(url_for("index"))
-    return render_template("example_form.html", form=form)
 ```
 
 ## Running the tests

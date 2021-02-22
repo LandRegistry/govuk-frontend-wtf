@@ -15,5 +15,6 @@ idna==3.1                 # via email-validator
 itsdangerous==1.1.0       # via flask, flask-wtf
 jinja2==2.11.3            # via -r requirements.in, flask, govuk-frontend-jinja
 markupsafe==1.1.1         # via jinja2, wtforms
+pyyaml==5.4.1             # via -r requirements.in
 werkzeug==1.0.1           # via flask
 wtforms==2.3.3            # via -r requirements.in, flask-wtf

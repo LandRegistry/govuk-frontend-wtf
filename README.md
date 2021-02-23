@@ -4,9 +4,9 @@
 ![govuk-frontend 3.11.0](https://img.shields.io/badge/govuk--frontend%20version-3.11.0-005EA5?logo=gov.uk&style=flat)
 ![Build](https://github.com/LandRegistry/govuk-frontend-wtf/workflows/Build/badge.svg)
 
-> [Flask-WTF](https://flask-wtf.readthedocs.io/) is used for building HTML forms, making things like form validation and rendering of errors much easier than having to build this yourself. The [Flask-WTF documentation](https://flask-wtf.readthedocs.io/) covers the standard use cases and you should refer to this.
-> 
-> In addition to the standard use case however, flask-skeleton-ui includes custom widgets that can be used to render Flask-WTF forms in the GOV.​UK style. These widgets automatically render error messages in the appropriate places as well as showing an error summary at the top of the page in a fully GOV.​UK compliant manner.
+This repository contains a set of [WTForms widgets](https://wtforms.readthedocs.io/en/2.3.x/widgets/) used to render [WTForm fields](https://wtforms.readthedocs.io/en/2.3.x/fields/) using [GOV.UK Frontend](https://design-system.service.gov.uk/) component styling. This is done using Jinja macros from the [GOV.UK Frontend Jinja](https://github.com/LandRegistry/govuk-frontend-jinja) port of the original GOV.UK Frontend Nunjucks macros. These are kept up-to-date with GOV.UK Frontend releases, are thoroughly tested and produce 100% equivalent markup.
+
+This approach also renders the associated error messages in the appropriate place, shows the error summary component at the top of the page and sets all related accessibility ARIA attributes. Adding the appropriate [widget](#widgets) to your existing form Python class, along with far simpler templates, makes it quick and easy to produce fully GOV.UK compliant forms.
 
 - Package: [https://pypi.org/project/govuk-frontend-wtf/](https://pypi.org/project/govuk-frontend-wtf/)
 - Demo app: [https://github.com/LandRegistry/govuk-frontend-wtf-demo](https://github.com/LandRegistry/govuk-frontend-wtf-demo)

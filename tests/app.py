@@ -7,7 +7,6 @@ app.config["SECRET_KEY"] = "M15zC@#&nMMj@J91IONM3CVubJDVIh$H"
 
 app.jinja_loader = ChoiceLoader(
     [
-        PackageLoader("app"),
         PrefixLoader(
             {
                 "govuk_frontend_jinja": PackageLoader("govuk_frontend_jinja"),

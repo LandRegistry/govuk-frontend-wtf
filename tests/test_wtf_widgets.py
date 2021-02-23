@@ -3,7 +3,7 @@ import unittest
 import yaml
 from flask import render_template_string
 
-import app
+from tests.app import app
 from tests.fixtures.wtf_widgets_example_form import ExampleForm
 
 

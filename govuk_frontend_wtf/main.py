@@ -34,7 +34,7 @@ def flatten_errors(errors, prefix=""):
             # Recurse to handle subforms
             error_list += flatten_errors(value, prefix=prefix + key + "-")
         else:
-            error_list.append({"text": value[0], "href": "#{}{}-error".format(prefix, key)})
+            error_list.append({"text": value[0], "href": "#{}{}".format(prefix, key)})
 
     return error_list
 

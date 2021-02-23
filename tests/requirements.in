@@ -1,0 +1,9 @@
+deepmerge==0.1.1 
+email_validator==1.1.2
+flask-wtf==0.14.3
+flask==1.1.2 
+govuk-frontend-jinja==1.2.0
+jinja2==2.11.3
+pytest==6.2.2
+pyyaml==5.4.1
+wtforms==2.3.3

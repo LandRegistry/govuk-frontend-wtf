@@ -23,7 +23,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     package_data={"govuk_frontend_wtf": templates},
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Environment :: Web Environment",

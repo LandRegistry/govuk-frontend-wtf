@@ -16,7 +16,7 @@ This approach also renders the associated error messages in the appropriate plac
 
 For more detailed examples please refer to the [demo app source code](https://github.com/LandRegistry/govuk-frontend-wtf-demo).
 
-After running `pip install govuk-frontend-wtf`, ensure that you tell Jinja where to load the templates from using the `PackageLoader` and register `WTFormsHelpers` as follows:
+After running `pip install govuk-frontend-wtf`, ensure that you tell Jinja where to load the templates from using the `PackageLoader`, register `WTFormsHelpers`, then set an environment variable for `SECRET_KEY`.
 
 ```python
 from flask import Flask
@@ -24,6 +24,7 @@ from govuk_frontend_wtf.main import WTFormsHelpers
 from jinja2 import ChoiceLoader, PackageLoader, PrefixLoader
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 app.jinja_loader = ChoiceLoader(
     [
@@ -40,7 +41,7 @@ app.jinja_loader = ChoiceLoader(
 WTFormsHelpers(app)
 ```
 
-Import and include the relevant widget on each field in your form class (see [table below](#widgets)). Note that `widget=GovTextInput()` is the only difference relative to a standard Flask-WTF form definition.
+Import and include the relevant widget on each field in your form class (see [table below](#widgets)). Note that in this example `widget=GovTextInput()` is the only difference relative to a standard Flask-WTF form definition.
 
 ```python
 from flask_wtf import FlaskForm
@@ -85,7 +86,7 @@ def example():
     return render_template("example_form.html", form=form)
 ```
 
-Finally, in your template make sure to set the page title appropriately if there are any form validation errors. Also include the `govukErrorSummary()` component at the start of the `content` block. Pass parameters in a dictionary to your form field as per the associated [component macro options](https://design-system.service.gov.uk/components/).
+Finally, in your template set the page title appropriately if there are any form validation errors, as per [GOV.UK Design System guidance](https://design-system.service.gov.uk/components/error-summary/#how-it-works). Include the `govukErrorSummary()` component at the start of the `content` block. Pass parameters in a dictionary to your form field as per the associated [component macro options](https://design-system.service.gov.uk/components/).
 
 ```html
 {% extends "base.html" %}
@@ -94,13 +95,6 @@ Finally, in your template make sure to set the page title appropriately if there
 {%- from 'govuk_frontend_jinja/components/error-summary/macro.html' import govukErrorSummary -%}
 
 {% block pageTitle %}{%- if form and form.errors %}Error: {% endif -%}Example form – GOV.UK Frontend WTForms Demo{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    'text': "Back",
-    'href': url_for('index')
-  }) }}
-{% endblock %}
 
 {% block content %}
 {% if form.errors %}

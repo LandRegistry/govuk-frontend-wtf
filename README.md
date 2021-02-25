@@ -91,19 +91,19 @@ Finally, in your template set the page title appropriately if there are any form
 ```html
 {% extends "base.html" %}
 
-{%- from 'govuk_frontend_jinja/components/back-link/macro.html' import govukBackLink -%}
 {%- from 'govuk_frontend_jinja/components/error-summary/macro.html' import govukErrorSummary -%}
 
 {% block pageTitle %}{%- if form and form.errors %}Error: {% endif -%}Example form – GOV.UK Frontend WTForms Demo{% endblock %}
 
 {% block content %}
-{% if form.errors %}
-    {{ govukErrorSummary(wtforms_errors(form)) }}
-{% endif %}
-
-<h1 class="govuk-heading-l">Example form</h1>
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+        {% if form.errors %}
+            {{ govukErrorSummary(wtforms_errors(form)) }}
+        {% endif %}
+
+        <h1 class="govuk-heading-xl">Example form</h1>
+
         <form action="" method="post" novalidate>
             {{ form.csrf_token }}
             

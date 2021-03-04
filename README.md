@@ -162,6 +162,10 @@ pytest tests
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/LandRegistry/govuk-frontend-wtf/tags).
 
+## How to contribute
+
+We welcome contribution from the community. If you want to contribute to this project, please review the [code of conduct](CODE_OF_CONDUCT.md) and [contribution guidelines](CONTRIBUTING.md).
+
 ## Contributors
 
 - [Matt Shaw](https://github.com/matthew-shaw) (Primary maintainer)

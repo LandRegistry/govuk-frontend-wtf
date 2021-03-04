@@ -154,8 +154,10 @@ In order to generate things like email fields using `GovTextInput` you will need
 ## Running the tests
 
 ```shell
+python3 -m venv venv
+source venv/bin/activate
 pip install -r tests/requirements.txt
-pytest tests
+pytest
 ```
 
 ## Versioning

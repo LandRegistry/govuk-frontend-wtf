@@ -75,7 +75,12 @@ class ExampleForm(FlaskForm):
         "SelectField",
         widget=GovSelect(),
         validators=[InputRequired(message="Please select an option")],
-        choices=[("", "Please select"), ("one", "One"), ("two", "Two"), ("three", "Three")],
+        choices=[
+            ("", "Please select"),
+            ("one", "One"),
+            ("two", "Two"),
+            ("three", "Three"),
+        ],
         default="",
     )
 

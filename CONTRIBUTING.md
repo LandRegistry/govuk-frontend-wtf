@@ -1,6 +1,6 @@
 # How to contribute
 
-The following are some guidelines to help you contribute to this repository. These are designed to help you make a valuable contribution that can be used within the package quicker and easier.
+The following are some guidelines to help you make a valuable contribution to this project quicker and easier.
 
 There are two main types of contribution that we welcome; issues and pull requests.
 

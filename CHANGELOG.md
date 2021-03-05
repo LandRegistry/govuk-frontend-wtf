@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/0.1.0...main)
 
+### Added
+
+- Clarification that this is a [GOV.UK Design System Community Resource](https://design-system.service.gov.uk/community/resources-and-tools/), created and maintained by HM Land Registry
+- Issue templates for [bug reports](.github/ISSUE_TEMPLATE/bug_report.md) and [feature requests](.github/ISSUE_TEMPLATE/feature_request.md)
+- Dependabot config to help keep requirements up to date
+- [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md)
+- [Contribution guidelines](CONTRIBUTING.md)
+- [Support information](README.md#support)
+
 ## [0.1.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/0.1.0) - 23/02/2021
 
 ### Added

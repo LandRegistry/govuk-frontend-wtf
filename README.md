@@ -4,6 +4,8 @@
 ![govuk-frontend 3.11.0](https://img.shields.io/badge/govuk--frontend%20version-3.11.0-005EA5?logo=gov.uk&style=flat)
 ![Build](https://github.com/LandRegistry/govuk-frontend-wtf/workflows/Build/badge.svg)
 
+**This is a [GOV.UK Design System Community Resource](https://design-system.service.gov.uk/community/resources-and-tools/), created and maintained by HM Land Registry**
+
 This repository contains a set of [WTForms widgets](https://wtforms.readthedocs.io/en/2.3.x/widgets/) used to render [WTForm fields](https://wtforms.readthedocs.io/en/2.3.x/fields/) using [GOV.UK Frontend](https://design-system.service.gov.uk/) component styling. This is done using Jinja macros from the [GOV.UK Frontend Jinja](https://github.com/LandRegistry/govuk-frontend-jinja) port of the original GOV.UK Frontend Nunjucks macros. These are kept up-to-date with GOV.UK Frontend releases, are thoroughly tested and produce 100% equivalent markup.
 
 This approach also renders the associated error messages in the appropriate place, shows the error summary component at the top of the page and sets all related accessibility ARIA attributes. Adding the appropriate [widget](#widgets) to your existing form Python class, along with far simpler templates, makes it quick and easy to produce fully GOV.UK compliant forms.
@@ -152,16 +154,30 @@ In order to generate things like email fields using `GovTextInput` you will need
 ## Running the tests
 
 ```shell
+python3 -m venv venv
+source venv/bin/activate
 pip install -r tests/requirements.txt
-pytest tests
+pytest
 ```
 
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/LandRegistry/govuk-frontend-wtf/tags).
 
+## How to contribute
+
+We welcome contribution from the community. If you want to contribute to this project, please review the [code of conduct](CODE_OF_CONDUCT.md) and [contribution guidelines](CONTRIBUTING.md).
+
 ## Contributors
 
 - [Matt Shaw](https://github.com/matthew-shaw) (Primary maintainer)
 - [Andy Mantell](https://github.com/andymantell) (Original author)
 - [Hugo Baldwin](https://github.com/byzantime)
+
+## Support
+
+This software is provided _"as-is"_ without warranty. Support is provided on a _"best endeavours"_ basis by the maintainers and open source community.
+
+If you are a civil servant you can sign up to the [UK Government Digital Slack](https://ukgovernmentdigital.slack.com/signup) workspace to contact the maintainers listed [above](#contributors) and the community of people using this project in the [#govuk-design-system](https://ukgovernmentdigital.slack.com/archives/C6DMEH5R6) channel.
+
+Otherwise, please see the [contribution guidelines](CONTRIBUTING.md) for how to raise a bug report or feature request.

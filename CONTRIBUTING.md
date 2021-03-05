@@ -24,7 +24,7 @@ If you want to contribute code directly to the project in order to fix a bug or 
 
 3. Make your contributions to your fork and ensure that the build pipeline still passes. This includes checking dependencies are up-to-date and clear of any security vulnerabilities, running code linting and running unit tests. See the [GitHub workflows](.github/workflows) for details of exactly what the build pipeline will run.
 
-4. Format your Python code with [black](https://pypi.org/project/black/) using `black . -l 120` for consistency with the existing codebase.
+4. Format your Python code with [Black](https://pypi.org/project/black/) using `black . -l 120` for consistency with the existing codebase.
 
 5. If the build passes, [create a pull request](https://guides.github.com/activities/forking/#making-a-pull-request). Please provide as much useful information about your change as possible.
 

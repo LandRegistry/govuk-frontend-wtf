@@ -139,21 +139,30 @@ class GovDateInput(GovFormBase):
                 'label': 'Day',
                 'id': '{}-day'.format(field.name),
                 'name': field.name,
-                'classes': 'govuk-input--width-2',
+                'classes': ' '.join([
+                    'govuk-input--width-2',
+                    'govuk-input--error' if field.errors else ''
+                ]).strip(),
                 'value': day,
             },
             {
                 'label': 'Month',
                 'id': '{}-month'.format(field.name),
                 'name': field.name,
-                'classes': 'govuk-input--width-2',
+                'classes': ' '.join([
+                    'govuk-input--width-2',
+                    'govuk-input--error' if field.errors else ''
+                ]).strip(),
                 'value': month,
             },
             {
                 'label': 'Year',
                 'id': '{}-year'.format(field.name),
                 'name': field.name,
-                'classes': 'govuk-input--width-4',
+                'classes': ' '.join([
+                    'govuk-input--width-4',
+                    'govuk-input--error' if field.errors else ''
+                ]).strip(),
                 'value': year,
             },
         ])

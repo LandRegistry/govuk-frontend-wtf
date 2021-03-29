@@ -117,6 +117,8 @@ class GovDateInput(GovFormBase):
 
     def __call__(self, field, **kwargs):
         kwargs.setdefault('id', field.id)
+        if "value" not in kwargs:
+            kwargs["value"] = field._value()
         return super().__call__(field, **kwargs)
 
     def map_gov_params(self, field, **kwargs):

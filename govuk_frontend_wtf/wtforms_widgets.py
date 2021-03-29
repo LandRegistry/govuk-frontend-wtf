@@ -113,7 +113,7 @@ class GovDateInput(GovFormBase):
     The field names MUST all be the same for this widget to work.
     """
 
-    template = 'wtforms_gov/date.html'
+    template = 'govuk_frontend_wtf/date.html'
 
     def __call__(self, field, **kwargs):
         kwargs.setdefault('id', field.id)

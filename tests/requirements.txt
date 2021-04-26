@@ -8,7 +8,7 @@ attrs==20.3.0
     # via pytest
 click==7.1.2
     # via flask
-deepmerge==0.1.1
+deepmerge==0.3.0
     # via -r tests/requirements.in
 dnspython==2.1.0
     # via email-validator

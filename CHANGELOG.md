@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- `GovDateInput` widget to render WTForms [DateField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateField) and [DateTimeFields](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateTimeField) as [GOV.UK Date input components](https://design-system.service.gov.uk/components/date-input/). Thanks to [@byzantime](https://github.com/byzantime) and [@dalepotter](https://github.com/dalepotter)
+- `GovDateInput` widget to render WTForms [DateField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateField) and [DateTimeFields](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateTimeField) as [GOV.UK Date input components](https://design-system.service.gov.uk/components/date-input/). Thanks to [Hugo Baldwin](https://github.com/byzantime) and [Dale Potter](https://github.com/dalepotter)
 
 ### Changed
 

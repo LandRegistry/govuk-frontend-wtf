@@ -113,10 +113,14 @@ class GovDateInput(GovFormBase):
     The field names MUST all be the same for this widget to work.
     """
 
-    template = 'wtforms_gov/date.html'
+    template = 'govuk_frontend_wtf/date.html'
 
     def __call__(self, field, **kwargs):
         kwargs.setdefault('id', field.id)
+        if "value" not in kwargs:
+            kwargs["value"] = field._value()
+        if "required" not in kwargs and "required" in getattr(field, "flags", []):
+            kwargs["required"] = True
         return super().__call__(field, **kwargs)
 
     def map_gov_params(self, field, **kwargs):
@@ -135,21 +139,30 @@ class GovDateInput(GovFormBase):
                 'label': 'Day',
                 'id': '{}-day'.format(field.name),
                 'name': field.name,
-                'classes': 'govuk-input--width-2',
+                'classes': ' '.join([
+                    'govuk-input--width-2',
+                    'govuk-input--error' if field.errors else ''
+                ]).strip(),
                 'value': day,
             },
             {
                 'label': 'Month',
                 'id': '{}-month'.format(field.name),
                 'name': field.name,
-                'classes': 'govuk-input--width-2',
+                'classes': ' '.join([
+                    'govuk-input--width-2',
+                    'govuk-input--error' if field.errors else ''
+                ]).strip(),
                 'value': month,
             },
             {
                 'label': 'Year',
                 'id': '{}-year'.format(field.name),
                 'name': field.name,
-                'classes': 'govuk-input--width-4',
+                'classes': ' '.join([
+                    'govuk-input--width-4',
+                    'govuk-input--error' if field.errors else ''
+                ]).strip(),
                 'value': year,
             },
         ])

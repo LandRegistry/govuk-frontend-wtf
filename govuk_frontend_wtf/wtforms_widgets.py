@@ -104,6 +104,71 @@ class GovRadioInput(GovIterableBase):
     input_type = "radio"
 
 
+class GovDateInput(GovFormBase):
+    """Renders three input fields representing Day, Month and Year.
+
+    To be used as a widget for WTForms' DateField or DateTimeField.
+    The input field labels are hardcoded to "Day", "Month" and "Year".
+    The provided label is set as a legend above the input fields.
+    The field names MUST all be the same for this widget to work.
+    """
+
+    template = 'govuk_frontend_wtf/date.html'
+
+    def __call__(self, field, **kwargs):
+        kwargs.setdefault('id', field.id)
+        if "value" not in kwargs:
+            kwargs["value"] = field._value()
+        if "required" not in kwargs and "required" in getattr(field, "flags", []):
+            kwargs["required"] = True
+        return super().__call__(field, **kwargs)
+
+    def map_gov_params(self, field, **kwargs):
+        params = super().map_gov_params(field, **kwargs)
+        day, month, year = [None] * 3
+        if field.raw_data is not None:
+            day, month, year = field.raw_data
+        params.setdefault('fieldset', {
+            'legend': {
+                'text': field.label.text,
+                'classes': 'govuk-legend',
+            },
+        })
+        params.setdefault('items', [
+            {
+                'label': 'Day',
+                'id': '{}-day'.format(field.name),
+                'name': field.name,
+                'classes': ' '.join([
+                    'govuk-input--width-2',
+                    'govuk-input--error' if field.errors else ''
+                ]).strip(),
+                'value': day,
+            },
+            {
+                'label': 'Month',
+                'id': '{}-month'.format(field.name),
+                'name': field.name,
+                'classes': ' '.join([
+                    'govuk-input--width-2',
+                    'govuk-input--error' if field.errors else ''
+                ]).strip(),
+                'value': month,
+            },
+            {
+                'label': 'Year',
+                'id': '{}-year'.format(field.name),
+                'name': field.name,
+                'classes': ' '.join([
+                    'govuk-input--width-4',
+                    'govuk-input--error' if field.errors else ''
+                ]).strip(),
+                'value': year,
+            },
+        ])
+        return params
+
+
 class GovFileInput(GovInput, FileInput):
     """Render a file chooser input.
 

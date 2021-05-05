@@ -132,6 +132,8 @@ The available widgets and their corresponding Flask-WTF field types are as follo
 | WTForms Field                                                                                             | GOV.​UK Widget               | Notes |
 | --------------------------------------------------------------------------------------------------------- | --------------------------- | ----- |
 | [BooleanField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.BooleanField)               | GovCheckboxInput            |       |
+| [DateField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateField)                     | GovDateInput                |       |
+| [DateTimeField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateTimeField)             | GovDateInput                |       |
 | [DecimalField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DecimalField)               | GovTextInput                |       |
 | [FileField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.FileField)                     | GovFileInput                |       |
 | [MultipleFileField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.MultipleFileField)     | GovFileInput(multiple=True) | Note that you need to specify `multiple=True` when invoking the widget in your form class. _Not_ when you render it in the Jinja template. |
@@ -173,6 +175,7 @@ We welcome contribution from the community. If you want to contribute to this pr
 - [Matt Shaw](https://github.com/matthew-shaw) (Primary maintainer)
 - [Andy Mantell](https://github.com/andymantell) (Original author)
 - [Hugo Baldwin](https://github.com/byzantime)
+- [Dale Potter](https://github.com/dalepotter)
 
 ## Support
 

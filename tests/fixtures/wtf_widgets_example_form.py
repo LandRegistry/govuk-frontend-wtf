@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from govuk_frontend_wtf.wtforms_widgets import (
     GovCheckboxesInput,
     GovCheckboxInput,
+    GovDateInput,
     GovFileInput,
     GovPasswordInput,
     GovRadioInput,
@@ -12,6 +13,7 @@ from govuk_frontend_wtf.wtforms_widgets import (
 )
 from wtforms.fields import (
     BooleanField,
+    DateField,
     DecimalField,
     FileField,
     FloatField,
@@ -33,6 +35,13 @@ class ExampleForm(FlaskForm):
         "StringField",
         widget=GovTextInput(),
         validators=[InputRequired(message="StringField is required")],
+    )
+
+    date_field = DateField(
+        "DateField",
+        format="%d %m %Y",
+        widget=GovDateInput(),
+        validators=[InputRequired(message="Date is required")]
     )
 
     email_field = StringField(

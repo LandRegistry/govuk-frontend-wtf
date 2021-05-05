@@ -34,6 +34,49 @@ TestStringField:
         - <span id="string_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Example serverside error - type &#34;John Smith&#34; into this field to suppress it\s*</span>
         - <div class="govuk-form-group govuk-form-group--error">
 
+TestDateField:
+  template: "{{ form['date_field'] }}"
+  tests:
+      test_empty_get:
+        expected_output:
+          - <label class="govuk-label govuk-date-input__label" for="date_field-day">\s*Day\s*</label>
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-day" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
+          - <label class="govuk-label govuk-date-input__label" for="date_field-month">\s*Month\s*</label>
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
+          - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
+      test_valid_post:
+          request:
+              method: post
+              data:
+                  date_field:
+                    - 1
+                    - 1
+                    - 2020
+          expected_output:
+              - <label class="govuk-label govuk-date-input__label" for="date_field-day">\s*Day\s*</label>
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-day" name="date_field" type="text" value="1" pattern="\[0-9\]\*" inputmode="numeric">
+              - <label class="govuk-label govuk-date-input__label" for="date_field-month">\s*Month\s*</label>
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" value="1" pattern="\[0-9\]\*" inputmode="numeric">
+              - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
+      test_invalid_post:
+          request:
+              method: post
+              data:
+                  date_field:
+                    - A
+                    - B
+                    - C
+          expected_output:
+              - <div class="govuk-form-group govuk-form-group--error">
+              - <label class="govuk-label govuk-date-input__label" for="date_field-day">\s*Day\s*</label>
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-day" name="date_field" type="text" value="A" pattern="\[0-9\]\*" inputmode="numeric">
+              - <label class="govuk-label govuk-date-input__label" for="date_field-month">\s*Month\s*</label>
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-month" name="date_field" type="text" value="B" pattern="\[0-9\]\*" inputmode="numeric">
+              - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date_field-year" name="date_field" type="text" value="C" pattern="\[0-9\]\*" inputmode="numeric">
+
 TestEmailField:
   template: "{{ form['email_field'](params={'type': 'email', 'hint': {'text': 'This is a hint'}}) }}"
   tests:
@@ -546,6 +589,7 @@ TestErrorSummary:
         - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
         - <h2 class="govuk-error-summary__title" id="error-summary-title">\s*There is a problem\s*</h2>
         - <a href="#string_field">StringField is required</a>
+        - <a href="#date_field">Date is required</a>
         - <a href="#integer_field">IntegerField is required</a>
         - <a href="#select_field">Please select an option</a>
         - <a href="#decimal_field">DecimalField is required</a>
@@ -564,6 +608,10 @@ TestErrorSummary:
         method: post
         data:
           string_field: John Smith
+          date_field:
+            - 1
+            - 1
+            - 2020
           integer_field: 1
           select_field: one
           decimal_field: 1.0
@@ -587,6 +635,10 @@ TestErrorSummary:
         method: post
         data:
           string_field: Andy
+          date_field:
+            - 1
+            - 1
+            - 2020
           integer_field: 1
           select_field: one
           decimal_field: 1.0

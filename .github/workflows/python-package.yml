@@ -26,10 +26,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install flake8 piprot safety pytest
+        python -m pip install flake8 safety pytest
         pip install -r tests/requirements.txt
-    - name: Check dependencies are up to date
-      run: piprot tests/requirements.in
     - name: Check dependencies for known security vulnerabilities
       run: safety check -r tests/requirements.txt
     - name: Lint with flake8

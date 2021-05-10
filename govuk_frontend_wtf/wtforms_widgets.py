@@ -100,8 +100,22 @@ class GovCheckboxInput(GovCheckboxesInput):
 
 
 class GovRadioInput(GovIterableBase):
+    """Render radio button inputs.
+
+    Uses the field label as the fieldset legend.
+    """
     template = "govuk_frontend_wtf/radios.html"
     input_type = "radio"
+
+    def map_gov_params(self, field, **kwargs):
+        params = super().map_gov_params(field, **kwargs)
+        params.setdefault('fieldset', {
+            'legend': {
+                'text': field.label.text,
+                'classes': 'govuk-legend',
+            },
+        })
+        return params
 
 
 class GovDateInput(GovFormBase):

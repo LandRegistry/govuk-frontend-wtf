@@ -5,5 +5,6 @@ flask==1.1.2
 govuk-frontend-jinja==1.2.1
 jinja2==2.11.3
 pytest==6.2.4
+pytest-cov==2.11.1
 pyyaml==5.4.1
 wtforms==2.3.3

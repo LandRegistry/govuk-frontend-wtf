@@ -25,18 +25,6 @@ def wtforms_errors(form, params={}):
     return merger.merge(wtforms_params, params)
 
 
-# def flatten_errors(errors, prefix=""):
-#     error_list = []
-
-#     for key, value in errors.items():
-#         if isinstance(value, dict):
-#             # Recurse to handle subforms
-#             error_list += flatten_errors(value, prefix=prefix + key + "-")
-#         else:
-#             error_list.append({"text": value[0], "href": "#{}{}".format(prefix, key)})
-#     return error_list
-
-
 def flatten_errors(errors, prefix=''):
     """Return list of errors from form errors."""
     error_list = []
@@ -50,12 +38,12 @@ def flatten_errors(errors, prefix=''):
     elif isinstance(errors, list):
         error_list.append({
             'text': errors[0],
-            'href': f'#{prefix}error'
+            'href': '#{}'.format(prefix.rstrip('-'))
         })
     else:
         error_list.append({
             'text': errors,
-            'href': f'#{prefix}error'
+            'href': '#{}'.format(prefix.rstrip('-'))
         })
     return error_list
 

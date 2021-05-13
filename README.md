@@ -159,7 +159,7 @@ In order to generate things like email fields using `GovTextInput` you will need
 python3 -m venv venv
 source venv/bin/activate
 pip install -r tests/requirements.txt
-pytest
+pytest --cov=govuk_frontend_wtf --cov-report=term-missing --cov-branch
 ```
 
 ## Versioning

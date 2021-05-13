@@ -11,12 +11,15 @@ from govuk_frontend_wtf.wtforms_widgets import (
     GovTextArea,
     GovTextInput,
 )
+from wtforms import Form as NoCsrfForm
 from wtforms.fields import (
     BooleanField,
     DateField,
     DecimalField,
+    FieldList,
     FileField,
     FloatField,
+    FormField,
     IntegerField,
     MultipleFileField,
     PasswordField,
@@ -28,6 +31,14 @@ from wtforms.fields import (
     TextAreaField,
 )
 from wtforms.validators import Email, EqualTo, InputRequired, ValidationError
+
+
+class ExampleChildForm(NoCsrfForm):
+    string_field = StringField(
+        'StringField',
+        widget=GovTextInput(),
+        validators=[InputRequired(message="StringField is required")],
+    )
 
 
 class ExampleForm(FlaskForm):
@@ -135,6 +146,11 @@ class ExampleForm(FlaskForm):
         "Re-type your password",
         widget=GovPasswordInput(),
         validators=[InputRequired("Please retype your password")],
+    )
+
+    nested_form = FieldList(
+        FormField(ExampleChildForm),
+        min_entries=1,
     )
 
     submit_button = SubmitField("SubmitField", widget=GovSubmitInput())

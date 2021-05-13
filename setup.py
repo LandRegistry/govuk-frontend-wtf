@@ -13,14 +13,14 @@ for directory in directories:
 
 setuptools.setup(
     name="govuk-frontend-wtf",
-    version="0.2.0",
+    version="0.2.1",
     author="Matt Shaw",
     author_email="matthew.shaw@landregistry.gov.uk",
     description="GOV.UK Frontend WTForms Widgets",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/LandRegistry/govuk-frontend-wtf",
-    packages=setuptools.find_packages(exclude="tests"),
+    packages=setuptools.find_packages(exclude=["tests"]),
     package_data={"govuk_frontend_wtf": templates},
     classifiers=[
         "Development Status :: 4 - Beta",

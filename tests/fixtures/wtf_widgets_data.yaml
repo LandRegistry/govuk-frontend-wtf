@@ -522,6 +522,27 @@ TestMultipleFileField:
       not_expected_output:
         - <script>alert("Hello")</script>
 
+TestNestedForm:
+  template: "{{ form['nested_form'] }}"
+  tests:
+    test_empty_get:
+      expected_output:
+        - <div class="govuk-form-group">
+        - <label for="nested_form-0">Nested Form-0</label>
+        - <input class="govuk-input" id="nested_form-0-string_field" name="nested_form-0-string_field" type="text" required="required">
+    test_output_sanitized:
+      request:
+        method: post
+        data:
+          nested_form-0-string_field: <script>alert("Hello")</script>
+      expected_output:
+        - <label for="nested_form-0">Nested Form-0</label>
+        - <label for="nested_form-0-string_field">StringField</label>
+        - <input class="govuk-input" id="nested_form-0-string_field" name="nested_form-0-string_field" type="text"
+        - required="required">
+      not_expected_output:
+        - <script>alert("Hello")</script>
+
 TestSubmitButton:
   template: "{{ form['submit_button'] }}"
   tests:
@@ -608,6 +629,7 @@ TestErrorSummary:
         method: post
         data:
           string_field: John Smith
+          nested_form-0-string_field: John Smith
           date_field:
             - 1
             - 1

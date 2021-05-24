@@ -34,5 +34,12 @@ setuptools.setup(
         "Topic :: Text Processing :: Markup :: HTML",
     ],
     python_requires=">=3.6",
-    install_requires=["deepmerge", "flask<2.0.0", "flask-wtf", "govuk-frontend-jinja", "jinja2<3.0.0", "wtforms"],
+    install_requires=[
+        "deepmerge",
+        "flask<2.0.0",
+        "flask-wtf",
+        "govuk-frontend-jinja",
+        "jinja2<3.0.0",
+        "wtforms",
+    ],
 )

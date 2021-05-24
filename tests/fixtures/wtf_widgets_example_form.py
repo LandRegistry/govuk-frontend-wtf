@@ -35,7 +35,7 @@ from wtforms.validators import Email, EqualTo, InputRequired, ValidationError
 
 class ExampleChildForm(NoCsrfForm):
     string_field = StringField(
-        'StringField',
+        "StringField",
         widget=GovTextInput(),
         validators=[InputRequired(message="StringField is required")],
     )
@@ -52,7 +52,7 @@ class ExampleForm(FlaskForm):
         "DateField",
         format="%d %m %Y",
         widget=GovDateInput(),
-        validators=[InputRequired(message="Date is required")]
+        validators=[InputRequired(message="Date is required")],
     )
 
     email_field = StringField(

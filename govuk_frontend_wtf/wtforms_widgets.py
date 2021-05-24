@@ -72,6 +72,18 @@ class GovCheckboxesInput(GovIterableBase):
     template = "govuk_frontend_wtf/checkboxes.html"
     input_type = "checkbox"
 
+    def map_gov_params(self, field, **kwargs):
+        params = super().map_gov_params(field, **kwargs)
+        params.setdefault(
+            "fieldset",
+            {
+                "legend": {
+                    "text": field.label.text,
+                },
+            },
+        )
+        return params
+
 
 class GovCheckboxInput(GovCheckboxesInput):
     """Render a single checkbox (i.e. a WTForms BooleanField)."""

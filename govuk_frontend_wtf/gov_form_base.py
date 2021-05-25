@@ -28,6 +28,7 @@ class GovFormBase(object):
             "name": field.name,
             "label": {"text": field.label.text},
             "attributes": {},
+            "hint": {"text": field.description},
         }
 
         if "value" in kwargs:
@@ -102,7 +103,11 @@ class GovIterableBase(GovFormBase):
         fields wrapped in an iterable
         """
 
-        params = {"name": field.name, "items": kwargs["items"]}
+        params = {
+            "name": field.name,
+            "items": kwargs["items"],
+            "hint": {"text": field.description},
+        }
 
         # Merge in any extra params passed in from the template layer
         if "params" in kwargs:

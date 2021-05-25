@@ -1,6 +1,6 @@
 deepmerge==0.3.0
 email_validator==1.1.2
-flask-wtf==0.14.3
+flask-wtf==0.15.0
 flask==1.1.2
 govuk-frontend-jinja==1.2.1
 jinja2==2.11.3

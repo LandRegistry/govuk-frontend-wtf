@@ -16,7 +16,7 @@ dnspython==2.1.0
     # via email-validator
 email_validator==1.1.2
     # via -r requirements.in
-flask-wtf==0.14.3
+flask-wtf==0.15.0
     # via -r requirements.in
 flask==1.1.4
     # via

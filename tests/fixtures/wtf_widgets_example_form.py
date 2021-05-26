@@ -1,3 +1,5 @@
+import datetime
+
 from flask_wtf import FlaskForm
 from govuk_frontend_wtf.wtforms_widgets import (
     GovCheckboxesInput,
@@ -50,6 +52,7 @@ class ExampleForm(FlaskForm):
 
     date_field = DateField(
         "DateField",
+        default=datetime.datetime.fromisoformat('2020-11-23T00:00:00'),
         format="%d %m %Y",
         widget=GovDateInput(),
         validators=[InputRequired(message="Date is required")]

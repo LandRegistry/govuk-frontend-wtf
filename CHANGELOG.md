@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/0.3.0...main)
 
+## [0.3.1](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/0.3.1) - 28/05/2021
+
+### Fixed
+
+- Ensure day, month, year values are set when default provided for GovDateInput
+
 ## [0.3.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/0.3.0) - 13/05/2021
 
 ### Added

@@ -46,6 +46,7 @@ class ExampleForm(FlaskForm):
         "StringField",
         widget=GovTextInput(),
         validators=[InputRequired(message="StringField is required")],
+        description="StringFieldHint",
     )
 
     date_field = DateField(
@@ -53,42 +54,49 @@ class ExampleForm(FlaskForm):
         format="%d %m %Y",
         widget=GovDateInput(),
         validators=[InputRequired(message="Date is required")],
+        description="DateFieldHint",
     )
 
     email_field = StringField(
-        "Email address",
+        "EmailField",
         widget=GovTextInput(),
-        validators=[InputRequired(message="Email address is required"), Email()],
+        validators=[InputRequired(message="EmailField is required"), Email()],
+        description="EmailFieldHint",
     )
 
     float_field = FloatField(
         "FloatField",
         widget=GovTextInput(),
         validators=[InputRequired(message="FloatField is required")],
+        description="FloatFieldHint",
     )
 
     integer_field = IntegerField(
         "IntegerField",
         widget=GovTextInput(),
         validators=[InputRequired(message="IntegerField is required")],
+        description="IntegerFieldHint",
     )
 
     decimal_field = DecimalField(
         "DecimalField",
         widget=GovTextInput(),
         validators=[InputRequired(message="DecimalField is required")],
+        description="DecimalFieldHint",
     )
 
     textarea_field = TextAreaField(
         "TextAreaField",
         widget=GovTextArea(),
         validators=[InputRequired(message="TextAreaField is required")],
+        description="TextAreaFieldHint",
     )
 
     boolean_field = BooleanField(
         "BooleanField",
         widget=GovCheckboxInput(),
         validators=[InputRequired(message="Please tick the box")],
+        description="BooleanFieldHint",
     )
 
     select_field = SelectField(
@@ -102,6 +110,7 @@ class ExampleForm(FlaskForm):
             ("three", "Three"),
         ],
         default="",
+        description="SelectFieldHint",
     )
 
     select_multiple_field = SelectMultipleField(
@@ -109,6 +118,7 @@ class ExampleForm(FlaskForm):
         widget=GovCheckboxesInput(),
         validators=[InputRequired(message="Please select an option")],
         choices=[("one", "One"), ("two", "Two"), ("three", "Three")],
+        description="SelectMultipleFieldHint",
     )
 
     radio_field = RadioField(
@@ -116,18 +126,21 @@ class ExampleForm(FlaskForm):
         widget=GovRadioInput(),
         validators=[InputRequired(message="Please select an option")],
         choices=[("one", "One"), ("two", "Two"), ("three", "Three")],
+        description="RadioFieldHint",
     )
 
     file_field = FileField(
         "FileField",
         widget=GovFileInput(),
         validators=[InputRequired(message="Please upload a file")],
+        description="FileFieldHint",
     )
 
     multiple_file_field = MultipleFileField(
         "MultipleFileField",
         widget=GovFileInput(multiple=True),
         validators=[InputRequired(message="Please upload a file")],
+        description="MultipleFileFieldHint",
     )
 
     password_field = PasswordField(
@@ -140,12 +153,14 @@ class ExampleForm(FlaskForm):
                 message="Please ensure both password fields match",
             ),
         ],
+        description="PasswordFieldHint",
     )
 
     password_retype_field = PasswordField(
         "Re-type your password",
         widget=GovPasswordInput(),
         validators=[InputRequired("Please retype your password")],
+        description="PasswordFieldHint",
     )
 
     nested_form = FieldList(

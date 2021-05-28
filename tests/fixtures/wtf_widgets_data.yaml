@@ -41,11 +41,11 @@ TestDateField:
       test_empty_get:
         expected_output:
           - <label class="govuk-label govuk-date-input__label" for="date_field-day">\s*Day\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-day" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-day" name="date_field" type="text" value="23" pattern="\[0-9\]\*" inputmode="numeric">
           - <label class="govuk-label govuk-date-input__label" for="date_field-month">\s*Month\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" value="11" pattern="\[0-9\]\*" inputmode="numeric">
           - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
       test_valid_post:
           request:
               method: post

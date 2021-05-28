@@ -161,36 +161,44 @@ class GovDateInput(GovFormBase):
     def map_gov_params(self, field, **kwargs):
         params = super().map_gov_params(field, **kwargs)
         if field._value():
-            day, month, year = field._value().split(' ')
-        params.setdefault('fieldset', {
-            'legend': {
-                'text': field.label.text
-            },
-        })
-        params.setdefault('items', [
-            {
-                'label': 'Day',
-                'id': '{}-day'.format(field.name),
-                'name': field.name,
-                'classes': ' '.join([
-                    'govuk-input--width-2',
-                    'govuk-input--error' if field.errors else ''
-                ]).strip(),
-                'value': day,
-            },
-            {
-                'label': 'Month',
-                'id': '{}-month'.format(field.name),
-                'name': field.name,
-                'classes': ' '.join([
-                    'govuk-input--width-2',
-                    'govuk-input--error' if field.errors else ''
-                ]).strip(),
-                'value': month,
-            },
+            day, month, year = field._value().split(" ")
+        params.setdefault(
+            "fieldset",
             {
                 "legend": {"text": field.label.text},
             },
+        )
+        params.setdefault(
+            "items",
+            [
+                {
+                    "label": "Day",
+                    "id": "{}-day".format(field.name),
+                    "name": field.name,
+                    "classes": " ".join(
+                        [
+                            "govuk-input--width-2",
+                            "govuk-input--error" if field.errors else "",
+                        ]
+                    ).strip(),
+                    "value": day,
+                },
+                {
+                    "label": "Month",
+                    "id": "{}-month".format(field.name),
+                    "name": field.name,
+                    "classes": " ".join(
+                        [
+                            "govuk-input--width-2",
+                            "govuk-input--error" if field.errors else "",
+                        ]
+                    ).strip(),
+                    "value": month,
+                },
+                {
+                    "legend": {"text": field.label.text},
+                },
+            ],
         )
         params.setdefault(
             "items",

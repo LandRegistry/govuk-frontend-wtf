@@ -176,6 +176,7 @@ We welcome contribution from the community. If you want to contribute to this pr
 - [Andy Mantell](https://github.com/andymantell) (Original author)
 - [Hugo Baldwin](https://github.com/byzantime)
 - [Dale Potter](https://github.com/dalepotter)
+- [Gabriel Ionescu](https://github.com/ionescuig)
 
 ## Support
 

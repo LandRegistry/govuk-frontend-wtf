@@ -52,6 +52,13 @@ class ExampleForm(FlaskForm):
 
     date_field = DateField(
         "DateField",
+        format="%d %m %Y",
+        widget=GovDateInput(),
+        validators=[InputRequired(message="Date is required")]
+    )
+
+    date_field_default = DateField(
+        "DateField",
         default=datetime.datetime(day=23, month=11, year=2020),
         format="%d %m %Y",
         widget=GovDateInput(),

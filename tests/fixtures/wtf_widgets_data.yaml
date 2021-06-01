@@ -40,11 +40,11 @@ TestDateField:
       test_empty_get:
         expected_output:
           - <label class="govuk-label govuk-date-input__label" for="date_field-day">\s*Day\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-day" name="date_field" type="text" value="23" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-day" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
           - <label class="govuk-label govuk-date-input__label" for="date_field-month">\s*Month\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" value="11" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
           - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
       test_valid_post:
           request:
               method: post
@@ -76,6 +76,18 @@ TestDateField:
               - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-month" name="date_field" type="text" value="B" pattern="\[0-9\]\*" inputmode="numeric">
               - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
               - <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date_field-year" name="date_field" type="text" value="C" pattern="\[0-9\]\*" inputmode="numeric">
+
+TestDateFieldDefault:
+  template: "{{ form['date_field_default'] }}"
+  tests:
+      test_empty_get:
+        expected_output:
+          - <label class="govuk-label govuk-date-input__label" for="date_field_default-day">\s*Day\s*</label>
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field_default-day" name="date_field_default" type="text" value="23" pattern="\[0-9\]\*" inputmode="numeric">
+          - <label class="govuk-label govuk-date-input__label" for="date_field_default-month">\s*Month\s*</label>
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field_default-month" name="date_field_default" type="text" value="11" pattern="\[0-9\]\*" inputmode="numeric">
+          - <label class="govuk-label govuk-date-input__label" for="date_field_default-year">\s*Year\s*</label>
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field_default-year" name="date_field_default" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
 
 TestEmailField:
   template: "{{ form['email_field'](params={'type': 'email', 'hint': {'text': 'This is a hint'}}) }}"
@@ -631,6 +643,10 @@ TestErrorSummary:
           string_field: John Smith
           nested_form-0-string_field: John Smith
           date_field:
+            - 1
+            - 1
+            - 2020
+          date_field_default:
             - 1
             - 1
             - 2020

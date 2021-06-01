@@ -141,6 +141,8 @@ class GovDateInput(GovFormBase):
         params = super().map_gov_params(field, **kwargs)
         if field._value():
             day, month, year = field._value().split(' ')
+        else:
+            day, month, year = [None] * 3
         params.setdefault('fieldset', {
             'legend': {
                 'text': field.label.text,

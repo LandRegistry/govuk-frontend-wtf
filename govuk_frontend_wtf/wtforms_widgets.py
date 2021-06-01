@@ -1,4 +1,12 @@
-from wtforms.widgets.core import FileInput, Input, PasswordInput, Select, SubmitInput, TextArea, TextInput
+from wtforms.widgets.core import (
+    FileInput,
+    Input,
+    PasswordInput,
+    Select,
+    SubmitInput,
+    TextArea,
+    TextInput,
+)
 
 from govuk_frontend_wtf.gov_form_base import GovFormBase, GovIterableBase
 
@@ -104,17 +112,21 @@ class GovRadioInput(GovIterableBase):
 
     Uses the field label as the fieldset legend.
     """
+
     template = "govuk_frontend_wtf/radios.html"
     input_type = "radio"
 
     def map_gov_params(self, field, **kwargs):
         params = super().map_gov_params(field, **kwargs)
-        params.setdefault('fieldset', {
-            'legend': {
-                'text': field.label.text,
-                'classes': 'govuk-legend',
+        params.setdefault(
+            "fieldset",
+            {
+                "legend": {
+                    "text": field.label.text,
+                    "classes": "govuk-legend",
+                },
             },
-        })
+        )
         return params
 
 
@@ -127,10 +139,10 @@ class GovDateInput(GovFormBase):
     The field names MUST all be the same for this widget to work.
     """
 
-    template = 'govuk_frontend_wtf/date.html'
+    template = "govuk_frontend_wtf/date.html"
 
     def __call__(self, field, **kwargs):
-        kwargs.setdefault('id', field.id)
+        kwargs.setdefault("id", field.id)
         if "value" not in kwargs:
             kwargs["value"] = field._value()
         if "required" not in kwargs and "required" in getattr(field, "flags", []):
@@ -141,45 +153,57 @@ class GovDateInput(GovFormBase):
         params = super().map_gov_params(field, **kwargs)
         day, month, year = [None] * 3
         if field._value():
-            day, month, year = field._value().split(' ')
-        params.setdefault('fieldset', {
-            'legend': {
-                'text': field.label.text,
-                'classes': 'govuk-legend',
-            },
-        })
-        params.setdefault('items', [
+            day, month, year = field._value().split(" ")
+        params.setdefault(
+            "fieldset",
             {
-                'label': 'Day',
-                'id': '{}-day'.format(field.name),
-                'name': field.name,
-                'classes': ' '.join([
-                    'govuk-input--width-2',
-                    'govuk-input--error' if field.errors else ''
-                ]).strip(),
-                'value': day,
+                "legend": {
+                    "text": field.label.text,
+                    "classes": "govuk-legend",
+                },
             },
-            {
-                'label': 'Month',
-                'id': '{}-month'.format(field.name),
-                'name': field.name,
-                'classes': ' '.join([
-                    'govuk-input--width-2',
-                    'govuk-input--error' if field.errors else ''
-                ]).strip(),
-                'value': month,
-            },
-            {
-                'label': 'Year',
-                'id': '{}-year'.format(field.name),
-                'name': field.name,
-                'classes': ' '.join([
-                    'govuk-input--width-4',
-                    'govuk-input--error' if field.errors else ''
-                ]).strip(),
-                'value': year,
-            },
-        ])
+        )
+        params.setdefault(
+            "items",
+            [
+                {
+                    "label": "Day",
+                    "id": "{}-day".format(field.name),
+                    "name": field.name,
+                    "classes": " ".join(
+                        [
+                            "govuk-input--width-2",
+                            "govuk-input--error" if field.errors else "",
+                        ]
+                    ).strip(),
+                    "value": day,
+                },
+                {
+                    "label": "Month",
+                    "id": "{}-month".format(field.name),
+                    "name": field.name,
+                    "classes": " ".join(
+                        [
+                            "govuk-input--width-2",
+                            "govuk-input--error" if field.errors else "",
+                        ]
+                    ).strip(),
+                    "value": month,
+                },
+                {
+                    "label": "Year",
+                    "id": "{}-year".format(field.name),
+                    "name": field.name,
+                    "classes": " ".join(
+                        [
+                            "govuk-input--width-4",
+                            "govuk-input--error" if field.errors else "",
+                        ]
+                    ).strip(),
+                    "value": year,
+                },
+            ],
+        )
         return params
 
 

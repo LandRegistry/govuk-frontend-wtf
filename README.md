@@ -1,7 +1,7 @@
 # GOV.UK Frontend WTForms Widgets
 
 [![PyPI version](https://badge.fury.io/py/govuk-frontend-wtf.svg)](https://pypi.org/project/govuk-frontend-wtf/)
-![govuk-frontend 3.12.0](https://img.shields.io/badge/govuk--frontend%20version-3.12.0-005EA5?logo=gov.uk&style=flat)
+![govuk-frontend 3.13.0](https://img.shields.io/badge/govuk--frontend%20version-3.13.0-005EA5?logo=gov.uk&style=flat)
 [![Python package](https://github.com/LandRegistry/govuk-frontend-wtf/actions/workflows/python-package.yml/badge.svg)](https://github.com/LandRegistry/govuk-frontend-wtf/actions/workflows/python-package.yml)
 
 **This is a [GOV.UK Design System Community Resource](https://design-system.service.gov.uk/community/resources-and-tools/), created and maintained by HM Land Registry**

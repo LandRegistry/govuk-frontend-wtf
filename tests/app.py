@@ -3,7 +3,7 @@ from govuk_frontend_wtf.main import WTFormsHelpers
 from jinja2 import ChoiceLoader, PackageLoader, PrefixLoader
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "M15zC@#&nMMj@J91IONM3CVubJDVIh$H"
+app.config["SECRET_KEY"] = "M15zC@#&nMMj@J91IONM3CVubJDVIh$H"  # nosec
 
 app.jinja_loader = ChoiceLoader(
     [

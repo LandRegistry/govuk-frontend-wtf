@@ -27,12 +27,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install flake8 safety pytest-cov bandit
+        python -m pip install flake8 safety pytest-cov bandit black
         pip install -r tests/requirements.txt
     - name: Check dependencies for known security vulnerabilities
       run: safety check -r tests/requirements.txt
-    - name: Check app for possible security vulnerabilities
-      run: bandit -r ./govuk_frontend_wtf
+    - name: Check code for potential security vulnerabilities
+      run: bandit -r .
+    - name: Check code formatting
+      run: black . -l 120 --check
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names

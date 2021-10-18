@@ -197,7 +197,17 @@ class GovDateInput(GovFormBase):
                     "value": month,
                 },
                 {
+                    "label": "Year",
+                    "id": "{}-year".format(field.name),
                     "legend": {"text": field.label.text},
+                    "name": field.name,
+                    "classes": " ".join(
+                        [
+                            "govuk-input--width-4",
+                            "govuk-input--error" if field.errors else "",
+                        ]
+                    ).strip(),
+                    "value": year,
                 },
             ],
         )

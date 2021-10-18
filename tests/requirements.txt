@@ -8,7 +8,7 @@ attrs==21.2.0
     # via pytest
 click==7.1.2
     # via flask
-coverage==6.0.2
+coverage[toml]==6.0.2
     # via pytest-cov
 deepmerge==0.3.0
     # via -r requirements.in
@@ -42,24 +42,22 @@ markupsafe==2.0.1
     #   wtforms
 packaging==21.0
     # via pytest
-pluggy==0.13.1
+pluggy==1.0.0
     # via pytest
 py==1.10.0
     # via pytest
 pyparsing==2.4.7
     # via packaging
-pytest==6.2.4
-    # via
-    #   -r requirements.in
-    #   pytest-cov
-pytest-cov==2.12.1
+pytest==6.2.5
+    # via pytest-cov
+pytest-cov==3.0.0
     # via -r requirements.in
-pyyaml==5.4.1
+pyyaml==6.0
     # via -r requirements.in
 toml==0.10.2
-    # via
-    #   pytest
-    #   pytest-cov
+    # via pytest
+tomli==1.2.1
+    # via coverage
 werkzeug==1.0.1
     # via flask
 wtforms==2.3.3

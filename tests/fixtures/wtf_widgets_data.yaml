@@ -122,7 +122,7 @@ TestEmailField:
         data:
           email_field: foo
       expected_output:
-        - <span id="email_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Invalid EmailField.\s*</span>
+        - <span id="email_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Email is not valid\s*</span>
         - <div id="email_field-hint" class="govuk-hint">\s*This is a hint\s*</div>
         - <label class="govuk-label" for="email_field">\s*EmailField\s*</label>
         - <input class="govuk-input govuk-input--error" id="email_field" name="email_field" type="email" value="foo" aria-describedby="email_field-hint email_field-error" required="required">

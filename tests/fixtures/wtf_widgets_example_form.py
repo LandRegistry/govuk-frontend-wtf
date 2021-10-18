@@ -70,7 +70,7 @@ class ExampleForm(FlaskForm):
     email_field = StringField(
         "EmailField",
         widget=GovTextInput(),
-        validators=[InputRequired(message="EmailField is required"), Email()],
+        validators=[InputRequired(message="EmailField is required"), Email(message="Email is not valid")],
         description="EmailFieldHint",
     )
 

@@ -1,12 +1,4 @@
-from wtforms.widgets.core import (
-    FileInput,
-    Input,
-    PasswordInput,
-    Select,
-    SubmitInput,
-    TextArea,
-    TextInput,
-)
+from wtforms.widgets.core import FileInput, Input, PasswordInput, Select, SubmitInput, TextArea, TextInput
 
 from govuk_frontend_wtf.gov_form_base import GovFormBase, GovIterableBase
 

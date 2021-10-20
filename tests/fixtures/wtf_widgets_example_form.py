@@ -1,18 +1,6 @@
 import datetime
 
 from flask_wtf import FlaskForm
-from govuk_frontend_wtf.wtforms_widgets import (
-    GovCheckboxesInput,
-    GovCheckboxInput,
-    GovDateInput,
-    GovFileInput,
-    GovPasswordInput,
-    GovRadioInput,
-    GovSelect,
-    GovSubmitInput,
-    GovTextArea,
-    GovTextInput,
-)
 from wtforms import Form as NoCsrfForm
 from wtforms.fields import (
     BooleanField,
@@ -33,6 +21,19 @@ from wtforms.fields import (
     TextAreaField,
 )
 from wtforms.validators import Email, EqualTo, InputRequired, ValidationError
+
+from govuk_frontend_wtf.wtforms_widgets import (
+    GovCheckboxesInput,
+    GovCheckboxInput,
+    GovDateInput,
+    GovFileInput,
+    GovPasswordInput,
+    GovRadioInput,
+    GovSelect,
+    GovSubmitInput,
+    GovTextArea,
+    GovTextInput,
+)
 
 
 class ExampleChildForm(NoCsrfForm):
@@ -70,7 +71,10 @@ class ExampleForm(FlaskForm):
     email_field = StringField(
         "EmailField",
         widget=GovTextInput(),
-        validators=[InputRequired(message="EmailField is required"), Email(message="Email is not valid")],
+        validators=[
+            InputRequired(message="EmailField is required"),
+            Email(message="Email is not valid"),
+        ],
         description="EmailFieldHint",
     )
 

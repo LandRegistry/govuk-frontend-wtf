@@ -331,12 +331,13 @@ TestSelectMultipleField:
           select_multiple_field: <script>alert("Hello")</script>
       expected_output:
         - <div class="govuk-form-group govuk-form-group--error">
+        - <fieldset class="govuk-fieldset" aria-describedby="select_multiple_field-hint select_multiple_field-error">
         - <span id="select_multiple_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*&#39;&lt;script&gt;alert\(&#34;Hello&#34;\)&lt;/script&gt;&#39; is not a valid choice for this field\s*</span>
-        - <input class="govuk-checkboxes__input" id="select_multiple_field" name="select_multiple_field" type="checkbox" value="one" aria-describedby="select_multiple_field-error">
+        - <input class="govuk-checkboxes__input" id="select_multiple_field" name="select_multiple_field" type="checkbox" value="one">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field">\s*One\s*</label>
-        - <input class="govuk-checkboxes__input" id="select_multiple_field-2" name="select_multiple_field" type="checkbox" value="two" aria-describedby="select_multiple_field-error">
+        - <input class="govuk-checkboxes__input" id="select_multiple_field-2" name="select_multiple_field" type="checkbox" value="two">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-2">\s*Two\s*</label>
-        - <input class="govuk-checkboxes__input" id="select_multiple_field-3" name="select_multiple_field" type="checkbox" value="three" aria-describedby="select_multiple_field-error">
+        - <input class="govuk-checkboxes__input" id="select_multiple_field-3" name="select_multiple_field" type="checkbox" value="three">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-3">\s*Three\s*</label>
       not_expected_output:
         - <script>alert("Hello")</script>
@@ -363,12 +364,13 @@ TestSelectMultipleField:
           select_multiple_field: foo
       expected_output:
         - <div class="govuk-form-group govuk-form-group--error">
+        - <fieldset class="govuk-fieldset" aria-describedby="select_multiple_field-hint select_multiple_field-error">
         - <span id="select_multiple_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*&#39;foo&#39; is not a valid choice for this field\s*</span>
-        - <input class="govuk-checkboxes__input" id="select_multiple_field" name="select_multiple_field" type="checkbox" value="one" aria-describedby="select_multiple_field-hint select_multiple_field-error">
+        - <input class="govuk-checkboxes__input" id="select_multiple_field" name="select_multiple_field" type="checkbox" value="one">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field">\s*One\s*</label>
-        - <input class="govuk-checkboxes__input" id="select_multiple_field-2" name="select_multiple_field" type="checkbox" value="two" aria-describedby="select_multiple_field-hint select_multiple_field-error">
+        - <input class="govuk-checkboxes__input" id="select_multiple_field-2" name="select_multiple_field" type="checkbox" value="two">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-2">\s*Two\s*</label>
-        - <input class="govuk-checkboxes__input" id="select_multiple_field-3" name="select_multiple_field" type="checkbox" value="three" aria-describedby="select_multiple_field-hint select_multiple_field-error">
+        - <input class="govuk-checkboxes__input" id="select_multiple_field-3" name="select_multiple_field" type="checkbox" value="three">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-3">\s*Three\s*</label>
 
 TestSelectField:

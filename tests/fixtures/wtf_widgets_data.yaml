@@ -275,9 +275,10 @@ TestBooleanField:
   tests:
     test_empty_get:
       expected_output:
+        - <div id="boolean_field-hint" class="govuk-hint">\s*BooleanFieldHint\s*</div>
         - <div class="govuk-checkboxes"\s+data-module="govuk-checkboxes">
         - <div class="govuk-checkboxes__item">
-        - <input class="govuk-checkboxes__input" id="boolean_field" name="boolean_field" type="checkbox" value="y">
+        - <input class="govuk-checkboxes__input" id="boolean_field" name="boolean_field" type="checkbox" value="y" aria-describedby="boolean_field-hint">
         - <label class="govuk-label govuk-checkboxes__label" for="boolean_field">\s*BooleanField\s*</label>
     test_output_sanitized:
       request:
@@ -285,9 +286,10 @@ TestBooleanField:
         data:
           boolean_field: <script>alert("Hello")</script>
       expected_output:
+        - <div id="boolean_field-hint" class="govuk-hint">\s*BooleanFieldHint\s*</div>
         - <div class="govuk-checkboxes"\s+data-module="govuk-checkboxes">
         - <div class="govuk-checkboxes__item">
-        - <input class="govuk-checkboxes__input" id="boolean_field" name="boolean_field" type="checkbox" value="&lt;script&gt;alert\(&#34;Hello&#34;\)&lt;/script&gt;" checked>
+        - <input class="govuk-checkboxes__input" id="boolean_field" name="boolean_field" type="checkbox" value="&lt;script&gt;alert\(&#34;Hello&#34;\)&lt;/script&gt;" checked aria-describedby="boolean_field-hint">
         - <label class="govuk-label govuk-checkboxes__label" for="boolean_field">\s*BooleanField\s*</label>
       not_expected_output:
         - <script>alert("Hello")</script>
@@ -297,18 +299,20 @@ TestBooleanField:
         data:
           boolean_field: y
       expected_output:
+        - <div id="boolean_field-hint" class="govuk-hint">\s*BooleanFieldHint\s*</div>
         - <div class="govuk-checkboxes"\s+data-module="govuk-checkboxes">
         - <div class="govuk-checkboxes__item">
-        - <input class="govuk-checkboxes__input" id="boolean_field" name="boolean_field" type="checkbox" value="y" checked>
+        - <input class="govuk-checkboxes__input" id="boolean_field" name="boolean_field" type="checkbox" value="y" checked aria-describedby="boolean_field-hint">
         - <label class="govuk-label govuk-checkboxes__label" for="boolean_field">\s*BooleanField\s*</label>
     test_invalid_post:
       request:
         method: post
       expected_output:
+        - <div id="boolean_field-hint" class="govuk-hint">\s*BooleanFieldHint\s*</div>
         - <span id="boolean_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Please tick the box\s*</span>
         - <div class="govuk-checkboxes"\s+data-module="govuk-checkboxes">
         - <div class="govuk-checkboxes__item">
-        - <input class="govuk-checkboxes__input" id="boolean_field" name="boolean_field" type="checkbox" value="y" aria-describedby="boolean_field-error">
+        - <input class="govuk-checkboxes__input" id="boolean_field" name="boolean_field" type="checkbox" value="y" aria-describedby="boolean_field-hint boolean_field-error">
         - <label class="govuk-label govuk-checkboxes__label" for="boolean_field">\s*BooleanField\s*</label>
 
 TestSelectMultipleField:

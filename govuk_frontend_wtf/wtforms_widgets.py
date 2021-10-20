@@ -118,6 +118,11 @@ class GovCheckboxInput(GovCheckboxesInput):
 
         return super().__call__(field_group, **kwargs)
 
+    def map_gov_params(self, field, **kwargs):
+        params = super().map_gov_params(field, **kwargs)
+        params.pop("fieldset")
+        return params
+
 
 class GovRadioInput(GovIterableBase):
     """Render radio button inputs.

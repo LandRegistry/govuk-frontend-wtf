@@ -91,20 +91,20 @@ TestDateFieldDefault:
           - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field_default-year" name="date_field_default" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
 
 TestEmailField:
-  template: "{{ form.email_field(params={'type': 'email'}) }}"
+  template: "{{ form.email_field(params={'type': 'email', 'spellcheck': false, 'autocomplete': 'email'}) }}"
   tests:
     test_empty_get:
       expected_output:
         - <div id="email_field-hint" class="govuk-hint">\s*EmailFieldHint\s*</div>
         - <label class="govuk-label" for="email_field">\s*EmailField\s*</label>
-        - <input class="govuk-input" id="email_field" name="email_field" type="email" aria-describedby="email_field-hint" required="required">
+        - <input class="govuk-input" id="email_field" name="email_field" type="email" spellcheck="false" aria-describedby="email_field-hint" autocomplete="email" required="required">
     test_output_sanitized:
       request:
         method: post
         data:
           email_field: <script>alert("Hello")</script>
       expected_output:
-        - <input class="govuk-input govuk-input--error" id="email_field" name="email_field" type="email" value="&lt;script&gt;alert\(&#34;Hello&#34;\)&lt;/script&gt;" aria-describedby="email_field-hint email_field-error" required="required">
+        - <input class="govuk-input govuk-input--error" id="email_field" name="email_field" type="email" spellcheck="false" value="&lt;script&gt;alert\(&#34;Hello&#34;\)&lt;/script&gt;" aria-describedby="email_field-hint email_field-error" autocomplete="email" required="required">
       not_expected_output:
         - <script>alert("Hello")</script>
     test_valid_post:
@@ -115,7 +115,7 @@ TestEmailField:
       expected_output:
         - <div id="email_field-hint" class="govuk-hint">\s*EmailFieldHint\s*</div>
         - <label class="govuk-label" for="email_field">\s*EmailField\s*</label>
-        - <input class="govuk-input" id="email_field" name="email_field" type="email" value="foo@bar.com" aria-describedby="email_field-hint" required="required">
+        - <input class="govuk-input" id="email_field" name="email_field" type="email" spellcheck="false" value="foo@bar.com" aria-describedby="email_field-hint" autocomplete="email" required="required">
     test_invalid_post:
       request:
         method: post
@@ -125,7 +125,7 @@ TestEmailField:
         - <span id="email_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Email is not valid\s*</span>
         - <div id="email_field-hint" class="govuk-hint">\s*EmailFieldHint\s*</div>
         - <label class="govuk-label" for="email_field">\s*EmailField\s*</label>
-        - <input class="govuk-input govuk-input--error" id="email_field" name="email_field" type="email" value="foo" aria-describedby="email_field-hint email_field-error" required="required">
+        - <input class="govuk-input govuk-input--error" id="email_field" name="email_field" type="email" spellcheck="false" value="foo" aria-describedby="email_field-hint email_field-error" autocomplete="email" required="required">
         - <div class="govuk-form-group govuk-form-group--error">
 
 TestFloatField:
@@ -570,13 +570,13 @@ TestSubmitButton:
         - <button value="y" type="submit" name="submit_button" class="govuk-button" data-module="govuk-button">
 
 TestPasswordField:
-  template: "{{ form.password_field(params={'type': 'password'}) }}"
+  template: "{{ form.password_field(params={'spellcheck': false}) }}"
   tests:
     test_empty_get:
       expected_output:
         - <div class="govuk-form-group">
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
-        - <input class="govuk-input" id="password_field" name="password_field" type="password" aria-describedby="password_field-hint" required="required">
+        - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
     test_output_sanitized:
       request:
         method: post
@@ -586,7 +586,7 @@ TestPasswordField:
       expected_output:
         # No error here - the data will merely have been accepted as a valid password
         # But we still want to ensure the value hasn't made it into the html unsanitized
-        - <input class="govuk-input" id="password_field" name="password_field" type="password" aria-describedby="password_field-hint" required="required">
+        - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
       not_expected_output:
         - <script>alert("Hello")</script>
     test_valid_post:
@@ -599,7 +599,7 @@ TestPasswordField:
         - <div class="govuk-form-group">
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
         # Ensure that passwords are not represented in the output for security reasons
-        - <input class="govuk-input" id="password_field" name="password_field" type="password" aria-describedby="password_field-hint" required="required">
+        - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
     test_invalid_post:
       request:
         method: post
@@ -611,7 +611,7 @@ TestPasswordField:
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
         - <span id="password_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Please ensure both password fields match\s*</span>
         # Ensure that passwords are not represented in the output for security reasons
-        - <input class="govuk-input govuk-input--error" id="password_field" name="password_field" type="password" aria-describedby="password_field-hint password_field-error" required="required">
+        - input class="govuk-input govuk-input--error" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint password_field-error" required="required">
 
 TestErrorSummary:
   template: >

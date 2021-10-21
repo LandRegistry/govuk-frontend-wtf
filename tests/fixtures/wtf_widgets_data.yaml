@@ -24,6 +24,7 @@ TestStringField:
       expected_output:
         - <input class="govuk-input" id="string_field" name="string_field" type="text" value="John Smith" aria-describedby="string_field-hint" required="required">
         - <label class="govuk-label" for="string_field">\s*StringField\s*</label>
+        - <div id="string_field-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
     test_invalid_post:
       request:
         method: post
@@ -34,6 +35,7 @@ TestStringField:
         - <label class="govuk-label" for="string_field">\s*StringField\s*</label>
         - <span id="string_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Example serverside error - type &#34;John Smith&#34; into this field to suppress it\s*</span>
         - <div class="govuk-form-group govuk-form-group--error">
+        - <div id="string_field-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
 
 TestDateField:
   template: "{{ form.date_field }}"
@@ -46,6 +48,7 @@ TestDateField:
           - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
           - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
           - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
+          - <div id="date_field-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
       test_valid_post:
           request:
               method: post
@@ -61,6 +64,7 @@ TestDateField:
               - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" value="1" pattern="\[0-9\]\*" inputmode="numeric">
               - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
               - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
+              - <div id="date_field-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
       test_invalid_post:
           request:
               method: post
@@ -77,6 +81,7 @@ TestDateField:
               - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-month" name="date_field" type="text" value="B" pattern="\[0-9\]\*" inputmode="numeric">
               - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
               - <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date_field-year" name="date_field" type="text" value="C" pattern="\[0-9\]\*" inputmode="numeric">
+              - <div id="date_field-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
 
 TestDateFieldDefault:
   template: "{{ form.date_field_default }}"
@@ -89,6 +94,7 @@ TestDateFieldDefault:
           - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field_default-month" name="date_field_default" type="text" value="11" pattern="\[0-9\]\*" inputmode="numeric">
           - <label class="govuk-label govuk-date-input__label" for="date_field_default-year">\s*Year\s*</label>
           - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field_default-year" name="date_field_default" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
+          - <div id="date_field_default-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
 
 TestEmailField:
   template: "{{ form.email_field(params={'type': 'email', 'spellcheck': false, 'autocomplete': 'email'}) }}"
@@ -135,6 +141,7 @@ TestFloatField:
       expected_output:
         - <input class="govuk-input" id="float_field" name="float_field" type="text" aria-describedby="float_field-hint" required="required">
         - <label class="govuk-label" for="float_field">\s*FloatField\s*</label>
+        - <div id="float_field-hint" class="govuk-hint">\s*FloatFieldHint\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -152,6 +159,7 @@ TestFloatField:
       expected_output:
         - <input class="govuk-input" id="float_field" name="float_field" type="text" value="1.4" aria-describedby="float_field-hint" required="required">
         - <label class="govuk-label" for="float_field">\s*FloatField\s*</label>
+        - <div id="float_field-hint" class="govuk-hint">\s*FloatFieldHint\s*</div>
     test_invalid_post:
       request:
         method: post
@@ -162,6 +170,7 @@ TestFloatField:
         - <label class="govuk-label" for="float_field">\s*FloatField\s*</label>
         - <span id="float_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid float value\s*</span>
         - <div class="govuk-form-group govuk-form-group--error">
+        - <div id="float_field-hint" class="govuk-hint">\s*FloatFieldHint\s*</div>
 
 TestIntegerField:
   template: "{{ form.integer_field }}"
@@ -170,6 +179,7 @@ TestIntegerField:
       expected_output:
         - <input class="govuk-input" id="integer_field" name="integer_field" type="text" aria-describedby="integer_field-hint" required="required">
         - <label class="govuk-label" for="integer_field">\s*IntegerField\s*</label>
+        - <div id="integer_field-hint" class="govuk-hint">\s*IntegerFieldHint\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -187,6 +197,7 @@ TestIntegerField:
       expected_output:
         - <input class="govuk-input" id="integer_field" name="integer_field" type="text" value="1" aria-describedby="integer_field-hint" required="required">
         - <label class="govuk-label" for="integer_field">\s*IntegerField\s*</label>
+        - <div id="integer_field-hint" class="govuk-hint">\s*IntegerFieldHint\s*</div>
     test_invalid_post:
       request:
         method: post
@@ -197,6 +208,7 @@ TestIntegerField:
         - <label class="govuk-label" for="integer_field">\s*IntegerField\s*</label>
         - <span id="integer_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid integer value\s*</span>
         - <div class="govuk-form-group govuk-form-group--error">
+        - <div id="integer_field-hint" class="govuk-hint">\s*IntegerFieldHint\s*</div>
 
 TestDecimalField:
   template: "{{ form.decimal_field }}"
@@ -205,6 +217,7 @@ TestDecimalField:
       expected_output:
         - <input class="govuk-input" id="decimal_field" name="decimal_field" type="text" aria-describedby="decimal_field-hint" required="required">
         - <label class="govuk-label" for="decimal_field">\s*DecimalField\s*</label>
+        - <div id="decimal_field-hint" class="govuk-hint">\s*DecimalFieldHint\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -222,6 +235,7 @@ TestDecimalField:
       expected_output:
         - <input class="govuk-input" id="decimal_field" name="decimal_field" type="text" value="1.4" aria-describedby="decimal_field-hint" required="required">
         - <label class="govuk-label" for="decimal_field">\s*DecimalField\s*</label>
+        - <div id="decimal_field-hint" class="govuk-hint">\s*DecimalFieldHint\s*</div>
     test_invalid_post:
       request:
         method: post
@@ -232,6 +246,7 @@ TestDecimalField:
         - <label class="govuk-label" for="decimal_field">\s*DecimalField\s*</label>
         - <span id="decimal_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid decimal value\s*</span>
         - <div class="govuk-form-group govuk-form-group--error">
+        - <div id="decimal_field-hint" class="govuk-hint">\s*DecimalFieldHint\s*</div>
 
 TestTextAreaField:
   template: "{{ form.textarea_field }}"
@@ -240,6 +255,7 @@ TestTextAreaField:
       expected_output:
         - <textarea class="govuk-textarea" id="textarea_field" name="textarea_field" rows="5" aria-describedby="textarea_field-hint" required="required"></textarea>
         - <label class="govuk-label" for="textarea_field">\s*TextAreaField\s*</label>
+        - <div id="textarea_field-hint" class="govuk-hint">\s*TextAreaFieldHint\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -259,6 +275,7 @@ TestTextAreaField:
       expected_output:
         - <textarea class="govuk-textarea" id="textarea_field" name="textarea_field" rows="5" aria-describedby="textarea_field-hint" required="required">Foo\n&lt;p&gt;Bar&lt;/p&gt;\s*</textarea>
         - <label class="govuk-label" for="textarea_field">\s*TextAreaField\s*</label>
+        - <div id="textarea_field-hint" class="govuk-hint">\s*TextAreaFieldHint\s*</div>
     test_invalid_post:
       request:
         method: post
@@ -269,6 +286,7 @@ TestTextAreaField:
         - <label class="govuk-label" for="textarea_field">\s*TextAreaField\s*</label>
         - <span id="textarea_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*TextAreaField is required\s*</span>
         - <div class="govuk-form-group govuk-form-group--error">
+        - <div id="textarea_field-hint" class="govuk-hint">\s*TextAreaFieldHint\s*</div>
 
 TestBooleanField:
   template: "{{ form.boolean_field }}"
@@ -328,6 +346,7 @@ TestSelectMultipleField:
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-2">\s*Two\s*</label>
         - <input class="govuk-checkboxes__input" id="select_multiple_field-3" name="select_multiple_field" type="checkbox" value="three">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-3">\s*Three\s*</label>
+        - <div id="select_multiple_field-hint" class="govuk-hint">\s*SelectMultipleFieldHint\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -343,6 +362,7 @@ TestSelectMultipleField:
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-2">\s*Two\s*</label>
         - <input class="govuk-checkboxes__input" id="select_multiple_field-3" name="select_multiple_field" type="checkbox" value="three">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-3">\s*Three\s*</label>
+        - <div id="select_multiple_field-hint" class="govuk-hint">\s*SelectMultipleFieldHint\s*</div>
       not_expected_output:
         - <script>alert("Hello")</script>
     test_valid_post:
@@ -361,6 +381,7 @@ TestSelectMultipleField:
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-2">\s*Two\s*</label>
         - <input class="govuk-checkboxes__input" id="select_multiple_field-3" name="select_multiple_field" type="checkbox" value="three">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-3">\s*Three\s*</label>
+        - <div id="select_multiple_field-hint" class="govuk-hint">\s*SelectMultipleFieldHint\s*</div>
     test_invalid_post:
       request:
         method: post
@@ -376,6 +397,7 @@ TestSelectMultipleField:
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-2">\s*Two\s*</label>
         - <input class="govuk-checkboxes__input" id="select_multiple_field-3" name="select_multiple_field" type="checkbox" value="three">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-3">\s*Three\s*</label>
+        - <div id="select_multiple_field-hint" class="govuk-hint">\s*SelectMultipleFieldHint\s*</div>
 
 TestSelectField:
   template: "{{ form.select_field }}"
@@ -389,6 +411,7 @@ TestSelectField:
         - <option value="one">One</option>
         - <option value="two">Two</option>
         - <option value="three">Three</option>
+        - <div id="select_field-hint" class="govuk-hint">\s*SelectFieldHint\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -403,6 +426,7 @@ TestSelectField:
         - <option value="one">One</option>
         - <option value="two">Two</option>
         - <option value="three">Three</option>
+        - <div id="select_field-hint" class="govuk-hint">\s*SelectFieldHint\s*</div>
       not_expected_output:
         - <script>alert("Hello")</script>
     test_valid_post:
@@ -418,6 +442,7 @@ TestSelectField:
         - <option value="one" selected>One</option>
         - <option value="two">Two</option>
         - <option value="three">Three</option>
+        - <div id="select_field-hint" class="govuk-hint">\s*SelectFieldHint\s*</div>
     test_invalid_post:
       request:
         method: post
@@ -432,6 +457,7 @@ TestSelectField:
         - <option value="one">One</option>
         - <option value="two">Two</option>
         - <option value="three">Three</option>
+        - <div id="select_field-hint" class="govuk-hint">\s*SelectFieldHint\s*</div>
 
 TestRadioField:
   template: "{{ form.radio_field }}"
@@ -447,6 +473,7 @@ TestRadioField:
         - label class="govuk-label govuk-radios__label" for="radio_field-2">\s*Two\s*</label>
         - <input class="govuk-radios__input" id="radio_field-3" name="radio_field" type="radio" value="three">
         - <label class="govuk-label govuk-radios__label" for="radio_field-3">\s*Three\s*</label>
+        - <div id="radio_field-hint" class="govuk-hint">\s*RadioFieldHint\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -463,6 +490,7 @@ TestRadioField:
         - label class="govuk-label govuk-radios__label" for="radio_field-2">\s*Two\s*</label>
         - <input class="govuk-radios__input" id="radio_field-3" name="radio_field" type="radio" value="three">
         - <label class="govuk-label govuk-radios__label" for="radio_field-3">\s*Three\s*</label>
+        - <div id="radio_field-hint" class="govuk-hint">\s*RadioFieldHint\s*</div>
       not_expected_output:
         - <script>alert("Hello")</script>
     test_valid_post:
@@ -480,6 +508,7 @@ TestRadioField:
         - label class="govuk-label govuk-radios__label" for="radio_field-2">\s*Two\s*</label>
         - <input class="govuk-radios__input" id="radio_field-3" name="radio_field" type="radio" value="three">
         - <label class="govuk-label govuk-radios__label" for="radio_field-3">\s*Three\s*</label>
+        - <div id="radio_field-hint" class="govuk-hint">\s*RadioFieldHint\s*</div>
     test_invalid_post:
       request:
         method: post
@@ -496,6 +525,7 @@ TestRadioField:
         - label class="govuk-label govuk-radios__label" for="radio_field-2">\s*Two\s*</label>
         - <input class="govuk-radios__input" id="radio_field-3" name="radio_field" type="radio" value="three">
         - <label class="govuk-label govuk-radios__label" for="radio_field-3">\s*Three\s*</label>
+        - <div id="radio_field-hint" class="govuk-hint">\s*RadioFieldHint\s*</div>
 
 TestFileField:
   template: "{{ form.file_field }}"
@@ -505,6 +535,7 @@ TestFileField:
         - <div class="govuk-form-group">
         - <label class="govuk-label" for="file_field">\s*FileField\s*</label>
         - <input class="govuk-file-upload" id="file_field" name="file_field" type="file" aria-describedby="file_field-hint" required="required">
+        - <div id="file_field-hint" class="govuk-hint">\s*FileFieldHint\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -514,6 +545,7 @@ TestFileField:
         - <div class="govuk-form-group">
         - <label class="govuk-label" for="file_field">\s*FileField\s*</label>
         - <input class="govuk-file-upload" id="file_field" name="file_field" type="file" aria-describedby="file_field-hint" required="required">
+        - <div id="file_field-hint" class="govuk-hint">\s*FileFieldHint\s*</div>
       not_expected_output:
         - <script>alert("Hello")</script>
 
@@ -525,6 +557,7 @@ TestMultipleFileField:
         - <div class="govuk-form-group">
         - <label class="govuk-label" for="multiple_file_field">\s*MultipleFileField\s*</label>
         - <input class="govuk-file-upload" id="multiple_file_field" name="multiple_file_field" type="file"
+        - <div id="multiple_file_field-hint" class="govuk-hint">\s*MultipleFileFieldHint\s*</div>
         - multiple="multiple" # Split out into individual tests because the ordering of these
         - required="required" # attributes varies randomly.
     test_output_sanitized:
@@ -536,6 +569,7 @@ TestMultipleFileField:
         - <div class="govuk-form-group">
         - <label class="govuk-label" for="multiple_file_field">\s*MultipleFileField\s*</label>
         - <input class="govuk-file-upload" id="multiple_file_field" name="multiple_file_field" type="file"
+        - <div id="multiple_file_field-hint" class="govuk-hint">\s*MultipleFileFieldHint\s*</div>
         - multiple="multiple" # Split out into individual tests because the ordering of these
         - required="required" # attributes varies randomly.
       not_expected_output:
@@ -549,6 +583,7 @@ TestNestedForm:
         - <div class="govuk-form-group">
         - <label for="nested_form-0">Nested Form-0</label>
         - <input class="govuk-input" id="nested_form-0-string_field" name="nested_form-0-string_field" type="text" aria-describedby="nested_form-0-string_field-hint" required="required">
+        - <div id="nested_form-0-string_field-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -558,6 +593,7 @@ TestNestedForm:
         - <label for="nested_form-0">Nested Form-0</label>
         - <label for="nested_form-0-string_field">StringField</label>
         - <input class="govuk-input" id="nested_form-0-string_field" name="nested_form-0-string_field" type="text"
+        - <div id="nested_form-0-string_field-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
         - required="required">
       not_expected_output:
         - <script>alert("Hello")</script>
@@ -577,6 +613,7 @@ TestPasswordField:
         - <div class="govuk-form-group">
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
         - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
+        - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -587,6 +624,7 @@ TestPasswordField:
         # No error here - the data will merely have been accepted as a valid password
         # But we still want to ensure the value hasn't made it into the html unsanitized
         - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
+        - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
       not_expected_output:
         - <script>alert("Hello")</script>
     test_valid_post:
@@ -600,6 +638,7 @@ TestPasswordField:
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
         # Ensure that passwords are not represented in the output for security reasons
         - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
+        - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
     test_invalid_post:
       request:
         method: post
@@ -612,6 +651,7 @@ TestPasswordField:
         - <span id="password_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Please ensure both password fields match\s*</span>
         # Ensure that passwords are not represented in the output for security reasons
         - input class="govuk-input govuk-input--error" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint password_field-error" required="required">
+        - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
 
 TestErrorSummary:
   template: >

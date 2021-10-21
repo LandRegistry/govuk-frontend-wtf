@@ -41,6 +41,7 @@ class ExampleChildForm(NoCsrfForm):
         "StringField",
         widget=GovTextInput(),
         validators=[InputRequired(message="StringField is required")],
+        description="StringFieldHint"
     )
 
 
@@ -57,6 +58,7 @@ class ExampleForm(FlaskForm):
         format="%d %m %Y",
         widget=GovDateInput(),
         validators=[InputRequired(message="Date is required")],
+        description="DateFieldHint",
     )
 
     date_field_default = DateField(

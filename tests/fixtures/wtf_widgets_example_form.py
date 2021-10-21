@@ -41,7 +41,7 @@ class ExampleChildForm(NoCsrfForm):
         "StringField",
         widget=GovTextInput(),
         validators=[InputRequired(message="StringField is required")],
-        description="StringFieldHint"
+        description="StringFieldHint",
     )
 
 

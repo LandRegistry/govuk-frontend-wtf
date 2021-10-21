@@ -1,6 +1,6 @@
 ---
 TestStringField:
-  template: "{{ form['string_field'] }}"
+  template: "{{ form.string_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -36,7 +36,7 @@ TestStringField:
         - <div class="govuk-form-group govuk-form-group--error">
 
 TestDateField:
-  template: "{{ form['date_field'] }}"
+  template: "{{ form.date_field }}"
   tests:
       test_empty_get:
         expected_output:
@@ -79,7 +79,7 @@ TestDateField:
               - <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date_field-year" name="date_field" type="text" value="C" pattern="\[0-9\]\*" inputmode="numeric">
 
 TestDateFieldDefault:
-  template: "{{ form['date_field_default'] }}"
+  template: "{{ form.date_field_default }}"
   tests:
       test_empty_get:
         expected_output:
@@ -91,7 +91,7 @@ TestDateFieldDefault:
           - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field_default-year" name="date_field_default" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
 
 TestEmailField:
-  template: "{{ form['email_field'](params={'type': 'email'}) }}"
+  template: "{{ form.email_field(params={'type': 'email'}) }}"
   tests:
     test_empty_get:
       expected_output:
@@ -129,7 +129,7 @@ TestEmailField:
         - <div class="govuk-form-group govuk-form-group--error">
 
 TestFloatField:
-  template: "{{ form['float_field'] }}"
+  template: "{{ form.float_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -164,7 +164,7 @@ TestFloatField:
         - <div class="govuk-form-group govuk-form-group--error">
 
 TestIntegerField:
-  template: "{{ form['integer_field'] }}"
+  template: "{{ form.integer_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -199,7 +199,7 @@ TestIntegerField:
         - <div class="govuk-form-group govuk-form-group--error">
 
 TestDecimalField:
-  template: "{{ form['decimal_field'] }}"
+  template: "{{ form.decimal_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -234,7 +234,7 @@ TestDecimalField:
         - <div class="govuk-form-group govuk-form-group--error">
 
 TestTextAreaField:
-  template: "{{ form['textarea_field'] }}"
+  template: "{{ form.textarea_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -271,7 +271,7 @@ TestTextAreaField:
         - <div class="govuk-form-group govuk-form-group--error">
 
 TestBooleanField:
-  template: "{{ form['boolean_field'] }}"
+  template: "{{ form.boolean_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -316,7 +316,7 @@ TestBooleanField:
         - <label class="govuk-label govuk-checkboxes__label" for="boolean_field">\s*BooleanField\s*</label>
 
 TestSelectMultipleField:
-  template: "{{ form['select_multiple_field'] }}"
+  template: "{{ form.select_multiple_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -378,7 +378,7 @@ TestSelectMultipleField:
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field-3">\s*Three\s*</label>
 
 TestSelectField:
-  template: "{{ form['select_field'] }}"
+  template: "{{ form.select_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -434,7 +434,7 @@ TestSelectField:
         - <option value="three">Three</option>
 
 TestRadioField:
-  template: "{{ form['radio_field'] }}"
+  template: "{{ form.radio_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -498,7 +498,7 @@ TestRadioField:
         - <label class="govuk-label govuk-radios__label" for="radio_field-3">\s*Three\s*</label>
 
 TestFileField:
-  template: "{{ form['file_field'] }}"
+  template: "{{ form.file_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -518,7 +518,7 @@ TestFileField:
         - <script>alert("Hello")</script>
 
 TestMultipleFileField:
-  template: "{{ form['multiple_file_field'] }}"
+  template: "{{ form.multiple_file_field }}"
   tests:
     test_empty_get:
       expected_output:
@@ -542,7 +542,7 @@ TestMultipleFileField:
         - <script>alert("Hello")</script>
 
 TestNestedForm:
-  template: "{{ form['nested_form'] }}"
+  template: "{{ form.nested_form }}"
   tests:
     test_empty_get:
       expected_output:
@@ -563,14 +563,14 @@ TestNestedForm:
         - <script>alert("Hello")</script>
 
 TestSubmitButton:
-  template: "{{ form['submit_button'] }}"
+  template: "{{ form.submit_button }}"
   tests:
     test_empty_get:
       expected_output:
         - <button value="y" type="submit" name="submit_button" class="govuk-button" data-module="govuk-button">
 
 TestPasswordField:
-  template: "{{ form['password_field'](params={'type': 'password'}) }}"
+  template: "{{ form.password_field(params={'type': 'password'}) }}"
   tests:
     test_empty_get:
       expected_output:

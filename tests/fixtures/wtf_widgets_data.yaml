@@ -91,11 +91,11 @@ TestDateFieldDefault:
           - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field_default-year" name="date_field_default" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
 
 TestEmailField:
-  template: "{{ form['email_field'](params={'type': 'email', 'hint': {'text': 'This is a hint'}}) }}"
+  template: "{{ form['email_field'](params={'type': 'email'}) }}"
   tests:
     test_empty_get:
       expected_output:
-        - <div id="email_field-hint" class="govuk-hint">\s*This is a hint\s*</div>
+        - <div id="email_field-hint" class="govuk-hint">\s*EmailFieldHint\s*</div>
         - <label class="govuk-label" for="email_field">\s*EmailField\s*</label>
         - <input class="govuk-input" id="email_field" name="email_field" type="email" aria-describedby="email_field-hint" required="required">
     test_output_sanitized:
@@ -113,7 +113,7 @@ TestEmailField:
         data:
           email_field: foo@bar.com
       expected_output:
-        - <div id="email_field-hint" class="govuk-hint">\s*This is a hint\s*</div>
+        - <div id="email_field-hint" class="govuk-hint">\s*EmailFieldHint\s*</div>
         - <label class="govuk-label" for="email_field">\s*EmailField\s*</label>
         - <input class="govuk-input" id="email_field" name="email_field" type="email" value="foo@bar.com" aria-describedby="email_field-hint" required="required">
     test_invalid_post:
@@ -123,7 +123,7 @@ TestEmailField:
           email_field: foo
       expected_output:
         - <span id="email_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Email is not valid\s*</span>
-        - <div id="email_field-hint" class="govuk-hint">\s*This is a hint\s*</div>
+        - <div id="email_field-hint" class="govuk-hint">\s*EmailFieldHint\s*</div>
         - <label class="govuk-label" for="email_field">\s*EmailField\s*</label>
         - <input class="govuk-input govuk-input--error" id="email_field" name="email_field" type="email" value="foo" aria-describedby="email_field-hint email_field-error" required="required">
         - <div class="govuk-form-group govuk-form-group--error">

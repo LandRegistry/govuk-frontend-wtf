@@ -110,9 +110,6 @@ Finally, in your template set the page title appropriately if there are any form
             {{ form.csrf_token }}
             
             {{ form.email_address(params={
-              'hint': {
-                'text': form.email_address.description
-              },
               'type': 'email',
               'autocomplete': 'email',
               'spellcheck': false

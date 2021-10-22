@@ -4,7 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/0.3.2..main)
+## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/1.0.0..main)
+
+## [1.0.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/1.0.0) - 22/10/2021
+
+### Added
+
+- Form field descriptions are automatically added as hint text
+- Support for [Python v3.10](https://www.python.org/downloads/release/python-3100/)
+
+### Changed
+
+- Support for [GOV.UK Frontend v3.14.0](https://github.com/alphagov/govuk-frontend/releases/tag/v3.14.0) via [GOV.UK Frontend Jinja v1.5.1](https://github.com/LandRegistry/govuk-frontend-jinja/releases/tag/1.5.1)
+- Restricted future version requirements of GOV.UK Frontend Jinja to <2.0.0 to maintain compatibility with GOV.UK Frontend v3.x.x (both GOV.UK Frontend Jinja and GOV.UK Frontend WTForms will move to v2.x.x when GOV.UK Frontend v4.x.x is released)
+
+### Fixed
+
+- `GovCheckboxesInput` have the `aria-describedby` attribute added to their fieldset, not the input
+- `GovCheckboxInput` have the inherited fieldset removed, so that the `aria-describedby` attribute is added to the input
 
 ## [0.3.2](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/0.3.2) - 01/06/2021
 

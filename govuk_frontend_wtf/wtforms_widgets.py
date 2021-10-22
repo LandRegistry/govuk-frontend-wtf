@@ -1,12 +1,4 @@
-from wtforms.widgets.core import (
-    FileInput,
-    Input,
-    PasswordInput,
-    Select,
-    SubmitInput,
-    TextArea,
-    TextInput,
-)
+from wtforms.widgets.core import FileInput, Input, PasswordInput, Select, SubmitInput, TextArea, TextInput
 
 from govuk_frontend_wtf.gov_form_base import GovFormBase, GovIterableBase
 
@@ -72,6 +64,18 @@ class GovCheckboxesInput(GovIterableBase):
     template = "govuk_frontend_wtf/checkboxes.html"
     input_type = "checkbox"
 
+    def map_gov_params(self, field, **kwargs):
+        params = super().map_gov_params(field, **kwargs)
+        params.setdefault(
+            "fieldset",
+            {
+                "legend": {
+                    "text": field.label.text,
+                },
+            },
+        )
+        return params
+
 
 class GovCheckboxInput(GovCheckboxesInput):
     """Render a single checkbox (i.e. a WTForms BooleanField)."""
@@ -106,6 +110,11 @@ class GovCheckboxInput(GovCheckboxesInput):
 
         return super().__call__(field_group, **kwargs)
 
+    def map_gov_params(self, field, **kwargs):
+        params = super().map_gov_params(field, **kwargs)
+        params.pop("fieldset")
+        return params
+
 
 class GovRadioInput(GovIterableBase):
     """Render radio button inputs.
@@ -121,10 +130,7 @@ class GovRadioInput(GovIterableBase):
         params.setdefault(
             "fieldset",
             {
-                "legend": {
-                    "text": field.label.text,
-                    "classes": "govuk-legend",
-                },
+                "legend": {"text": field.label.text},
             },
         )
         return params
@@ -157,10 +163,7 @@ class GovDateInput(GovFormBase):
         params.setdefault(
             "fieldset",
             {
-                "legend": {
-                    "text": field.label.text,
-                    "classes": "govuk-legend",
-                },
+                "legend": {"text": field.label.text},
             },
         )
         params.setdefault(

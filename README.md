@@ -1,10 +1,10 @@
 # GOV.UK Frontend WTForms Widgets
 
 [![PyPI version](https://badge.fury.io/py/govuk-frontend-wtf.svg)](https://pypi.org/project/govuk-frontend-wtf/)
-![govuk-frontend 3.11.0](https://img.shields.io/badge/govuk--frontend%20version-3.11.0-005EA5?logo=gov.uk&style=flat)
+![govuk-frontend 3.14.0](https://img.shields.io/badge/govuk--frontend%20version-3.14.0-005EA5?logo=gov.uk&style=flat)
 [![Python package](https://github.com/LandRegistry/govuk-frontend-wtf/actions/workflows/python-package.yml/badge.svg)](https://github.com/LandRegistry/govuk-frontend-wtf/actions/workflows/python-package.yml)
 
-**This is a [GOV.UK Design System Community Resource](https://design-system.service.gov.uk/community/resources-and-tools/), created and maintained by HM Land Registry**
+**GOV.UK Frontend Jinja is a [community tool](https://design-system.service.gov.uk/community/resources-and-tools/) of the [GOV.UK Design System](https://design-system.service.gov.uk/). The Design System team is not responsible for it and cannot support you with using it. Contact the [maintainers](#contributors) directly if you need [help](#support) or you want to request a feature.**
 
 This repository contains a set of [WTForms widgets](https://wtforms.readthedocs.io/en/2.3.x/widgets/) used to render [WTForm fields](https://wtforms.readthedocs.io/en/2.3.x/fields/) using [GOV.UK Frontend](https://design-system.service.gov.uk/) component styling. This is done using Jinja macros from the [GOV.UK Frontend Jinja](https://github.com/LandRegistry/govuk-frontend-jinja) port of the original GOV.UK Frontend Nunjucks macros. These are kept up-to-date with GOV.UK Frontend releases, are thoroughly tested and produce 100% equivalent markup.
 
@@ -19,6 +19,8 @@ This approach also renders the associated error messages in the appropriate plac
 For more detailed examples please refer to the [demo app source code](https://github.com/LandRegistry/govuk-frontend-wtf-demo).
 
 After running `pip install govuk-frontend-wtf`, ensure that you tell Jinja where to load the templates from using the `PackageLoader`, register `WTFormsHelpers`, then set an environment variable for `SECRET_KEY`.
+
+`app/__init__.py`:
 
 ```python
 from flask import Flask
@@ -45,6 +47,8 @@ WTFormsHelpers(app)
 
 Import and include the relevant widget on each field in your form class (see [table below](#widgets)). Note that in this example `widget=GovTextInput()` is the only difference relative to a standard Flask-WTF form definition.
 
+`app/forms.py`:
+
 ```python
 from flask_wtf import FlaskForm
 from govuk_frontend_wtf.wtforms_widgets import GovSubmitInput, GovTextInput
@@ -69,6 +73,8 @@ class ExampleForm(FlaskForm):
 
 Create a route to serve your form and template.
 
+`app/routes.py`:
+
 ```python
 from flask import redirect, render_template, url_for
 
@@ -90,6 +96,8 @@ def example():
 
 Finally, in your template set the page title appropriately if there are any form validation errors, as per [GOV.UK Design System guidance](https://design-system.service.gov.uk/components/error-summary/#how-it-works). Include the `govukErrorSummary()` component at the start of the `content` block. Pass parameters in a dictionary to your form field as per the associated [component macro options](https://design-system.service.gov.uk/components/).
 
+`app/templates/example_form.html`:
+
 ```html
 {% extends "base.html" %}
 
@@ -110,9 +118,6 @@ Finally, in your template set the page title appropriately if there are any form
             {{ form.csrf_token }}
             
             {{ form.email_address(params={
-              'hint': {
-                'text': form.email_address.description
-              },
               'type': 'email',
               'autocomplete': 'email',
               'spellcheck': false
@@ -150,7 +155,7 @@ The available widgets and their corresponding Flask-WTF field types are as follo
 In order to generate things like email fields using `GovTextInput` you will need to pass additional params through when rendering it as follows:
 
 ```html
-{{ form.email_address(params={'type': 'email'}) }}
+{{ form.email_address(params={'type': 'email', 'autocomplete': 'email', 'spellcheck': false}) }}
 ```
 
 ## Running the tests

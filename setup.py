@@ -13,7 +13,7 @@ for directory in directories:
 
 setuptools.setup(
     name="govuk-frontend-wtf",
-    version="0.3.2",
+    version="1.0.0",
     author="Matt Shaw",
     author_email="matthew.shaw@landregistry.gov.uk",
     description="GOV.UK Frontend WTForms Widgets",
@@ -38,7 +38,7 @@ setuptools.setup(
         "deepmerge",
         "flask",
         "flask-wtf",
-        "govuk-frontend-jinja",
+        "govuk-frontend-jinja<2.0.0",
         "jinja2",
         "wtforms",
     ],

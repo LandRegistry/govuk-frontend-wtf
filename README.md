@@ -12,7 +12,7 @@ This approach also renders the associated error messages in the appropriate plac
 
 - Package: [https://pypi.org/project/govuk-frontend-wtf/](https://pypi.org/project/govuk-frontend-wtf/)
 - Demo app: [https://github.com/LandRegistry/govuk-frontend-wtf-demo](https://github.com/LandRegistry/govuk-frontend-wtf-demo)
-- Live demo: [https://govuk-frontend-wtf.herokuapp.com/](https://govuk-frontend-wtf.herokuapp.com/)
+- Live demo: [https://govuk-frontend-wtforms.herokuapp.com/](https://govuk-frontend-wtforms.herokuapp.com/)
 
 ## How to use
 

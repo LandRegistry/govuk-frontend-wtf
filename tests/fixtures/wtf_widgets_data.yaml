@@ -168,7 +168,7 @@ TestFloatField:
       expected_output:
         - <input class="govuk-input govuk-input--error" id="float_field" name="float_field" type="text" value="foo" aria-describedby="float_field-hint float_field-error" required="required">
         - <label class="govuk-label" for="float_field">\s*FloatField\s*</label>
-        - <span id="float_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid float value\s*</span>
+        - <span id="float_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid float value.\s*</span>
         - <div class="govuk-form-group govuk-form-group--error">
         - <div id="float_field-hint" class="govuk-hint">\s*FloatFieldHint\s*</div>
 
@@ -206,7 +206,7 @@ TestIntegerField:
       expected_output:
         - <input class="govuk-input govuk-input--error" id="integer_field" name="integer_field" type="text" value="1.4" aria-describedby="integer_field-hint integer_field-error" required="required">
         - <label class="govuk-label" for="integer_field">\s*IntegerField\s*</label>
-        - <span id="integer_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid integer value\s*</span>
+        - <span id="integer_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid integer value.\s*</span>
         - <div class="govuk-form-group govuk-form-group--error">
         - <div id="integer_field-hint" class="govuk-hint">\s*IntegerFieldHint\s*</div>
 
@@ -244,7 +244,7 @@ TestDecimalField:
       expected_output:
         - <input class="govuk-input govuk-input--error" id="decimal_field" name="decimal_field" type="text" value="foo" aria-describedby="decimal_field-hint decimal_field-error" required="required">
         - <label class="govuk-label" for="decimal_field">\s*DecimalField\s*</label>
-        - <span id="decimal_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid decimal value\s*</span>
+        - <span id="decimal_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid decimal value.\s*</span>
         - <div class="govuk-form-group govuk-form-group--error">
         - <div id="decimal_field-hint" class="govuk-hint">\s*DecimalFieldHint\s*</div>
 
@@ -355,7 +355,7 @@ TestSelectMultipleField:
       expected_output:
         - <div class="govuk-form-group govuk-form-group--error">
         - <fieldset class="govuk-fieldset" aria-describedby="select_multiple_field-hint select_multiple_field-error">
-        - <span id="select_multiple_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*&#39;&lt;script&gt;alert\(&#34;Hello&#34;\)&lt;/script&gt;&#39; is not a valid choice for this field\s*</span>
+        - <span id="select_multiple_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*&#39;&lt;script&gt;alert\(&#34;Hello&#34;\)&lt;/script&gt;&#39; is not a valid choice for this field.\s*</span>
         - <input class="govuk-checkboxes__input" id="select_multiple_field" name="select_multiple_field" type="checkbox" value="one">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field">\s*One\s*</label>
         - <input class="govuk-checkboxes__input" id="select_multiple_field-2" name="select_multiple_field" type="checkbox" value="two">
@@ -390,7 +390,7 @@ TestSelectMultipleField:
       expected_output:
         - <div class="govuk-form-group govuk-form-group--error">
         - <fieldset class="govuk-fieldset" aria-describedby="select_multiple_field-hint select_multiple_field-error">
-        - <span id="select_multiple_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*&#39;foo&#39; is not a valid choice for this field\s*</span>
+        - <span id="select_multiple_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*&#39;foo&#39; is not a valid choice for this field.\s*</span>
         - <input class="govuk-checkboxes__input" id="select_multiple_field" name="select_multiple_field" type="checkbox" value="one">
         - <label class="govuk-label govuk-checkboxes__label" for="select_multiple_field">\s*One\s*</label>
         - <input class="govuk-checkboxes__input" id="select_multiple_field-2" name="select_multiple_field" type="checkbox" value="two">
@@ -421,7 +421,7 @@ TestSelectField:
         - <div class="govuk-form-group govuk-form-group--error">
         - <label class="govuk-label" for="select_field">\s*SelectField\s*</label>
         - <select class="govuk-select govuk-select--error" id="select_field" name="select_field" aria-describedby="select_field-hint select_field-error" required="required">
-        - <span id="select_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid choice\s*</span>
+        - <span id="select_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid choice.\s*</span>
         - <option value="">Please select</option>
         - <option value="one">One</option>
         - <option value="two">Two</option>
@@ -452,7 +452,7 @@ TestSelectField:
         - <div class="govuk-form-group govuk-form-group--error">
         - <label class="govuk-label" for="select_field">\s*SelectField\s*</label>
         - <select class="govuk-select govuk-select--error" id="select_field" name="select_field" aria-describedby="select_field-hint select_field-error" required="required">
-        - <span id="select_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid choice\s*</span>
+        - <span id="select_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid choice.\s*</span>
         - <option value="">Please select</option>
         - <option value="one">One</option>
         - <option value="two">Two</option>
@@ -481,7 +481,7 @@ TestRadioField:
           radio_field: <script>alert("Hello")</script>
       expected_output:
         - <div class="govuk-form-group govuk-form-group--error">
-        - <span id="radio_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid choice\s*</span>
+        - <span id="radio_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid choice.\s*</span>
         - <div class="govuk-radios">
         - <div class="govuk-radios__item">
         - <input class="govuk-radios__input" id="radio_field" name="radio_field" type="radio" value="one">
@@ -516,7 +516,7 @@ TestRadioField:
           radio_field: foo
       expected_output:
         - <div class="govuk-form-group govuk-form-group--error">
-        - <span id="radio_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid choice\s*</span>
+        - <span id="radio_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid choice.\s*</span>
         - <div class="govuk-radios">
         - <div class="govuk-radios__item">
         - <input class="govuk-radios__input" id="radio_field" name="radio_field" type="radio" value="one">

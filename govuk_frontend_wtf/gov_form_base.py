@@ -1,5 +1,5 @@
 from flask import render_template
-from jinja2 import Markup
+from markupsafe import Markup
 
 from govuk_frontend_wtf.main import merger
 

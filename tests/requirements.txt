@@ -8,7 +8,7 @@ attrs==21.2.0
     # via pytest
 click==8.0.3
     # via flask
-coverage[toml]==6.0.2
+coverage[toml]==6.1.2
     # via pytest-cov
 deepmerge==0.3.0
     # via -r requirements.in
@@ -20,7 +20,7 @@ flask==2.0.2
     # via
     #   -r requirements.in
     #   flask-wtf
-flask-wtf==0.15.1
+flask-wtf==1.0.0
     # via -r requirements.in
 govuk-frontend-jinja==1.5.1
     # via -r requirements.in
@@ -32,7 +32,7 @@ itsdangerous==2.0.1
     # via
     #   flask
     #   flask-wtf
-jinja2==3.0.2
+jinja2==3.0.3
     # via
     #   flask
     #   govuk-frontend-jinja
@@ -40,11 +40,11 @@ markupsafe==2.0.1
     # via
     #   jinja2
     #   wtforms
-packaging==21.0
+packaging==21.2
     # via pytest
 pluggy==1.0.0
     # via pytest
-py==1.10.0
+py==1.11.0
     # via pytest
 pyparsing==2.4.7
     # via packaging
@@ -56,9 +56,9 @@ pyyaml==6.0
     # via -r requirements.in
 toml==0.10.2
     # via pytest
-tomli==1.2.1
+tomli==1.2.2
     # via coverage
 werkzeug==2.0.2
     # via flask
-wtforms==2.3.3
+wtforms==3.0.0
     # via flask-wtf

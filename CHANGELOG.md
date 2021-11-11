@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Support for WTForms v3.0.0
 
+### Fixed
+
+- Removed deprecated `jinja2.Markup` call in favour of `markupsafe.Markup`, which resolves all deprecation warnings from test execution
+
 ## [1.0.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/1.0.0) - 22/10/2021
 
 ### Added

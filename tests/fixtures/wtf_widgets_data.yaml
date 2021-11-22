@@ -288,6 +288,46 @@ TestTextAreaField:
         - <div class="govuk-form-group govuk-form-group--error">
         - <div id="textarea_field-hint" class="govuk-hint">\s*TextAreaFieldHint\s*</div>
 
+TestCharacterCountField:
+  template: "{{ form.charactercount_field }}"
+  tests:
+    test_empty_get:
+      expected_output:
+        - <textarea class="govuk-textarea" id="textarea_field" name="textarea_field" rows="5" aria-describedby="textarea_field-hint" required="required"></textarea>
+        - <label class="govuk-label" for="textarea_field">\s*TextAreaField\s*</label>
+        - <div id="textarea_field-hint" class="govuk-hint">\s*TextAreaFieldHint\s*</div>
+    test_output_sanitized:
+      request:
+        method: post
+        data:
+          textarea_field: <script>alert("Hello")</script>
+      expected_output:
+        - <textarea class="govuk-textarea" id="textarea_field" name="textarea_field" rows="5" aria-describedby="textarea_field-hint" required="required">&lt;script&gt;alert\(&#34;Hello&#34;\)&lt;/script&gt;\s*</textarea>
+      not_expected_output:
+        - <script>alert("Hello")</script>
+    test_valid_post:
+      request:
+        method: post
+        data:
+          textarea_field: |
+            Foo
+            <p>Bar</p>
+      expected_output:
+        - <textarea class="govuk-textarea" id="textarea_field" name="textarea_field" rows="5" aria-describedby="textarea_field-hint" required="required">Foo\n&lt;p&gt;Bar&lt;/p&gt;\s*</textarea>
+        - <label class="govuk-label" for="textarea_field">\s*TextAreaField\s*</label>
+        - <div id="textarea_field-hint" class="govuk-hint">\s*TextAreaFieldHint\s*</div>
+    test_invalid_post:
+      request:
+        method: post
+        data:
+          something: else
+      expected_output:
+        - <textarea class="govuk-textarea govuk-textarea--error" id="textarea_field" name="textarea_field" rows="5" aria-describedby="textarea_field-hint textarea_field-error" required="required"></textarea>
+        - <label class="govuk-label" for="textarea_field">\s*TextAreaField\s*</label>
+        - <span id="textarea_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*TextAreaField is required\s*</span>
+        - <div class="govuk-form-group govuk-form-group--error">
+        - <div id="textarea_field-hint" class="govuk-hint">\s*TextAreaFieldHint\s*</div>
+
 TestBooleanField:
   template: "{{ form.boolean_field }}"
   tests:

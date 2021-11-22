@@ -23,6 +23,7 @@ from wtforms.fields import (
 from wtforms.validators import Email, EqualTo, InputRequired, ValidationError
 
 from govuk_frontend_wtf.wtforms_widgets import (
+    GovCharacterCount,
     GovCheckboxesInput,
     GovCheckboxInput,
     GovDateInput,
@@ -106,6 +107,13 @@ class ExampleForm(FlaskForm):
         widget=GovTextArea(),
         validators=[InputRequired(message="TextAreaField is required")],
         description="TextAreaFieldHint",
+    )
+
+    charactercount_field = TextAreaField(
+        "CharacterCountField",
+        widget=GovCharacterCount(),
+        validators=[InputRequired(message="CharacterCountField is required")],
+        description="CharacterCountFieldHint",
     )
 
     boolean_field = BooleanField(

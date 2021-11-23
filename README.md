@@ -134,7 +134,7 @@ Finally, in your template set the page title appropriately if there are any form
 
 The available widgets and their corresponding Flask-WTF field types are as follows:
 
-| WTForms Field                                                                                             | GOV.​UK Widget                  | Notes |
+| WTForms Field                                                                                             | GOV.​UK Widget(s)               | Notes |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------ | ----- |
 | [BooleanField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.BooleanField)               | GovCheckboxInput               |       |
 | [DateField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateField)                     | GovDateInput                   |       |

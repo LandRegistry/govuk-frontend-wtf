@@ -754,6 +754,7 @@ TestErrorSummary:
           radio_field: one
           select_multiple_field: one
           textarea_field: foo
+          charactercount_field: foo
           float_field: 1.5
       not_expected_output:
         - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">

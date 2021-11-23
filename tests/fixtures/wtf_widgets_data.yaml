@@ -724,6 +724,7 @@ TestErrorSummary:
         - <a href="#radio_field">Please select an option</a>
         - <a href="#select_multiple_field">Please select an option</a>
         - <a href="#textarea_field">TextAreaField is required</a>
+        - <a href="#charactercount_field">CharacterCountField is required</a>
         - <a href="#float_field">FloatField is required</a>
         - <a href="#password_retype_field">Please retype your password</a>
     test_no_errors:
@@ -782,6 +783,7 @@ TestErrorSummary:
           radio_field: one
           select_multiple_field: one
           textarea_field: foo
+          charactercount_field: foo
           float_field: 1.5
       expected_output:
         - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">

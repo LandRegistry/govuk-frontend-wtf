@@ -134,23 +134,23 @@ Finally, in your template set the page title appropriately if there are any form
 
 The available widgets and their corresponding Flask-WTF field types are as follows:
 
-| WTForms Field                                                                                             | GOV.​UK Widget               | Notes |
-| --------------------------------------------------------------------------------------------------------- | --------------------------- | ----- |
-| [BooleanField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.BooleanField)               | GovCheckboxInput            |       |
-| [DateField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateField)                     | GovDateInput                |       |
-| [DateTimeField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateTimeField)             | GovDateInput                |       |
-| [DecimalField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DecimalField)               | GovTextInput                |       |
-| [FileField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.FileField)                     | GovFileInput                |       |
-| [MultipleFileField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.MultipleFileField)     | GovFileInput(multiple=True) | Note that you need to specify `multiple=True` when invoking the widget in your form class. _Not_ when you render it in the Jinja template. |
-| [FloatField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.FloatField)                   | GovTextInput                |       |
-| [IntegerField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.IntegerField)               | GovTextInput                | Use `params` to specify a `type` if you need to use HTML5 number elements. This will not happen automatically. |
-| [PasswordField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.PasswordField)             | GovPasswordInput            |       |
-| [RadioField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.RadioField)                   | GovRadioInput               |       |
-| [SelectField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SelectField)                 | GovSelect                   |       |
-| [SelectMultipleField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SelectMultipleField) | GovCheckboxesInput          | Note that this renders checkboxes as `<select multiple>` elements are frowned upon. |
-| [SubmitField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SubmitField)                 | GovSubmitInput              |       |
-| [StringField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.StringField)                 | GovTextInput                |       |
-| [TextAreaField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.TextAreaField)             | GovTextArea                 |       |
+| WTForms Field                                                                                             | GOV.​UK Widget(s)               | Notes |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------ | ----- |
+| [BooleanField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.BooleanField)               | GovCheckboxInput               |       |
+| [DateField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateField)                     | GovDateInput                   |       |
+| [DateTimeField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateTimeField)             | GovDateInput                   |       |
+| [DecimalField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DecimalField)               | GovTextInput                   |       |
+| [FileField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.FileField)                     | GovFileInput                   |       |
+| [MultipleFileField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.MultipleFileField)     | GovFileInput(multiple=True)    | Note that you need to specify `multiple=True` when invoking the widget in your form class. _Not_ when you render it in the Jinja template. |
+| [FloatField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.FloatField)                   | GovTextInput                   |       |
+| [IntegerField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.IntegerField)               | GovTextInput                   | Use `params` to specify a `type` if you need to use HTML5 number elements. This will not happen automatically. |
+| [PasswordField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.PasswordField)             | GovPasswordInput               |       |
+| [RadioField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.RadioField)                   | GovRadioInput                  |       |
+| [SelectField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SelectField)                 | GovSelect                      |       |
+| [SelectMultipleField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SelectMultipleField) | GovCheckboxesInput             | Note that this renders checkboxes as `<select multiple>` elements are frowned upon. |
+| [SubmitField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SubmitField)                 | GovSubmitInput                 |       |
+| [StringField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.StringField)                 | GovTextInput                   |       |
+| [TextAreaField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.TextAreaField)             | GovTextArea, GovCharacterCount |       |
 
 In order to generate things like email fields using `GovTextInput` you will need to pass additional params through when rendering it as follows:
 
@@ -182,6 +182,7 @@ We welcome contribution from the community. If you want to contribute to this pr
 - [Hugo Baldwin](https://github.com/byzantime)
 - [Dale Potter](https://github.com/dalepotter)
 - [Gabriel Ionescu](https://github.com/ionescuig)
+- [Matt Pease](https://github.com/Skablam)
 
 ## Support
 

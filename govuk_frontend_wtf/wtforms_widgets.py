@@ -266,6 +266,23 @@ class GovTextArea(GovFormBase, TextArea):
         return super().__call__(field, **kwargs)
 
 
+class GovCharacterCount(GovFormBase, TextArea):
+    """Renders a multi-line text area with a character count.
+
+    `rows` and `cols` ought to be passed as keyword args when rendering.
+    """
+
+    template = "govuk_frontend_wtf/charactercount.html"
+
+    def __call__(self, field, **kwargs):
+        kwargs.setdefault("id", field.id)
+        if "value" not in kwargs:
+            kwargs["value"] = field._value()
+        if "required" not in kwargs and "required" in getattr(field, "flags", []):
+            kwargs["required"] = True
+        return super().__call__(field, **kwargs)
+
+
 class GovSelect(GovFormBase, Select):
     """Renders a select field.
 

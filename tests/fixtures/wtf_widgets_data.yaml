@@ -727,6 +727,7 @@ TestErrorSummary:
         - <a href="#charactercount_field">CharacterCountField is required</a>
         - <a href="#float_field">FloatField is required</a>
         - <a href="#password_retype_field">Please retype your password</a>
+        - <a href="#nested_form-0-string_field">StringField is required</a>
     test_no_errors:
       request:
         method: post

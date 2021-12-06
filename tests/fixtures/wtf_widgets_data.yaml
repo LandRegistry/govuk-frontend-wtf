@@ -82,6 +82,22 @@ TestDateField:
               - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
               - <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date_field-year" name="date_field" type="text" value="C" pattern="\[0-9\]\*" inputmode="numeric">
               - <div id="date_field-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
+          request:
+              method: post
+              data:
+                  date_field:
+                    - 1
+                    - " "  # Month value contains only whitespace
+                    - 2020
+          expected_output:
+              - <div class="govuk-form-group govuk-form-group--error">
+              - <label class="govuk-label govuk-date-input__label" for="date_field-day">\s*Day\s*</label>
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-day" name="date_field" type="text" value="1" pattern="\[0-9\]\*" inputmode="numeric">
+              - <label class="govuk-label govuk-date-input__label" for="date_field-month">\s*Month\s*</label>
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-month" name="date_field" type="text" value=" " pattern="\[0-9\]\*" inputmode="numeric">
+              - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date_field-year" name="date_field" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
+              - <div id="date_field-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
 
 TestDateFieldDefault:
   template: "{{ form.date_field_default }}"

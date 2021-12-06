@@ -158,8 +158,11 @@ class GovDateInput(GovFormBase):
     def map_gov_params(self, field, **kwargs):
         params = super().map_gov_params(field, **kwargs)
         day, month, year = [None] * 3
-        if field._value():
-            day, month, year = field._value().split(" ")
+        if field.raw_data is not None:
+            day, month, year = field.raw_data
+        elif field.data:
+            day, month, year = field.data.strftime("%d %m %Y").split(" ")
+
         params.setdefault(
             "fieldset",
             {

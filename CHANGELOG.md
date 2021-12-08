@@ -4,7 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/1.2.0..main)
+## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/1.2.1..main)
+
+## [1.2.1](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/1.2.1) - 08/12/2021
+
+### Fixed
+
+From [#38](https://github.com/LandRegistry/govuk-frontend-wtf/pull/38), thanks to [Dale Potter](https://github.com/dalepotter)
+
+- `ValueError` when parsing edge-case `GovDateInput` input data
+- Removes call to a private WTForm `Field` method.
+- Ensures user-inputted data (i.e. `Field.raw_data`) always takes precedence over default values (i.e. `Field.data`)
+
 
 ## [1.2.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/1.2.0) - 23/11/2021
 

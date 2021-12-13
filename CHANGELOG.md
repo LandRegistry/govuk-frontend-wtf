@@ -16,7 +16,6 @@ From [#38](https://github.com/LandRegistry/govuk-frontend-wtf/pull/38), thanks t
 - Removes call to a private WTForm `Field` method.
 - Ensures user-inputted data (i.e. `Field.raw_data`) always takes precedence over default values (i.e. `Field.data`)
 
-
 ## [1.2.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/1.2.0) - 23/11/2021
 
 ### Added

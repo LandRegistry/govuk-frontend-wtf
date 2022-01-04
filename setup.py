@@ -38,7 +38,7 @@ setuptools.setup(
         "deepmerge",
         "flask",
         "flask-wtf",
-        "govuk-frontend-jinja<2.0.0",
+        "govuk-frontend-jinja<3.0.0",
         "jinja2",
         "wtforms",
     ],

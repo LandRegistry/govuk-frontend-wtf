@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements.in
 #
-attrs==21.2.0
+attrs==21.4.0
     # via pytest
 click==8.0.3
     # via flask
@@ -22,7 +22,7 @@ flask==2.0.2
     #   flask-wtf
 flask-wtf==1.0.0
     # via -r requirements.in
-govuk-frontend-jinja==1.5.1
+govuk-frontend-jinja==2.0.0
     # via -r requirements.in
 idna==3.3
     # via email-validator
@@ -60,5 +60,5 @@ tomli==2.0.0
     # via coverage
 werkzeug==2.0.2
     # via flask
-wtforms==3.0.0
+wtforms==3.0.1
     # via flask-wtf

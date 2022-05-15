@@ -725,7 +725,7 @@ TestErrorSummary:
         data:
           foo: bar
       expected_output:
-        - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
         - <h2 class="govuk-error-summary__title" id="error-summary-title">\s*There is a problem\s*</h2>
         - <a href="#string_field">StringField is required</a>
         - <a href="#date_field">Date is required</a>
@@ -802,6 +802,6 @@ TestErrorSummary:
           charactercount_field: foo
           float_field: 1.5
       expected_output:
-        - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
         - <h2 class="govuk-error-summary__title" id="error-summary-title">\s*There is a problem\s*</h2>
         - <a href="#string_field">Example serverside error - type &#34;John Smith&#34; into this field to suppress it</a>

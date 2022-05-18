@@ -22,7 +22,7 @@ flask==2.1.2
     #   flask-wtf
 flask-wtf==1.0.1
     # via -r requirements.in
-govuk-frontend-jinja==2.1.0
+govuk-frontend-jinja==2.2.0
     # via -r requirements.in
 idna==3.3
     # via email-validator

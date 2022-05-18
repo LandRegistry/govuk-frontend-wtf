@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- [GOV.UK Frontend v4.0.1](https://github.com/alphagov/govuk-frontend/releases/tag/v4.0.1) support
+- [GOV.UK Frontend v4.1.0](https://github.com/alphagov/govuk-frontend/releases/tag/v4.1.0) support
 
 ## [2.0.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/2.0.0) - 13/01/2022
 

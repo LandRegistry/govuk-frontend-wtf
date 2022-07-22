@@ -43,11 +43,11 @@ TestDateField:
       test_empty_get:
         expected_output:
           - <label class="govuk-label govuk-date-input__label" for="date_field-day">\s*Day\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-day" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-day" name="date_field" type="text" inputmode="numeric">
           - <label class="govuk-label govuk-date-input__label" for="date_field-month">\s*Month\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" inputmode="numeric">
           - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" inputmode="numeric">
           - <div id="date_field-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
       test_valid_post:
           request:
@@ -59,11 +59,11 @@ TestDateField:
                     - 2020
           expected_output:
               - <label class="govuk-label govuk-date-input__label" for="date_field-day">\s*Day\s*</label>
-              - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-day" name="date_field" type="text" value="1" pattern="\[0-9\]\*" inputmode="numeric">
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-day" name="date_field" type="text" value="1" inputmode="numeric">
               - <label class="govuk-label govuk-date-input__label" for="date_field-month">\s*Month\s*</label>
-              - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" value="1" pattern="\[0-9\]\*" inputmode="numeric">
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field-month" name="date_field" type="text" value="1" inputmode="numeric">
               - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
-              - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field-year" name="date_field" type="text" value="2020" inputmode="numeric">
               - <div id="date_field-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
       test_invalid_post:
           request:
@@ -76,11 +76,11 @@ TestDateField:
           expected_output:
               - <div class="govuk-form-group govuk-form-group--error">
               - <label class="govuk-label govuk-date-input__label" for="date_field-day">\s*Day\s*</label>
-              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-day" name="date_field" type="text" value="A" pattern="\[0-9\]\*" inputmode="numeric">
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-day" name="date_field" type="text" value="A" inputmode="numeric">
               - <label class="govuk-label govuk-date-input__label" for="date_field-month">\s*Month\s*</label>
-              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-month" name="date_field" type="text" value="B" pattern="\[0-9\]\*" inputmode="numeric">
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-month" name="date_field" type="text" value="B" inputmode="numeric">
               - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
-              - <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date_field-year" name="date_field" type="text" value="C" pattern="\[0-9\]\*" inputmode="numeric">
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date_field-year" name="date_field" type="text" value="C" inputmode="numeric">
               - <div id="date_field-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
           request:
               method: post
@@ -92,11 +92,11 @@ TestDateField:
           expected_output:
               - <div class="govuk-form-group govuk-form-group--error">
               - <label class="govuk-label govuk-date-input__label" for="date_field-day">\s*Day\s*</label>
-              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-day" name="date_field" type="text" value="1" pattern="\[0-9\]\*" inputmode="numeric">
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-day" name="date_field" type="text" value="1" inputmode="numeric">
               - <label class="govuk-label govuk-date-input__label" for="date_field-month">\s*Month\s*</label>
-              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-month" name="date_field" type="text" value=" " pattern="\[0-9\]\*" inputmode="numeric">
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date_field-month" name="date_field" type="text" value=" " inputmode="numeric">
               - <label class="govuk-label govuk-date-input__label" for="date_field-year">\s*Year\s*</label>
-              - <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date_field-year" name="date_field" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
+              - <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date_field-year" name="date_field" type="text" value="2020" inputmode="numeric">
               - <div id="date_field-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
 
 TestDateFieldDefault:
@@ -105,11 +105,11 @@ TestDateFieldDefault:
       test_empty_get:
         expected_output:
           - <label class="govuk-label govuk-date-input__label" for="date_field_default-day">\s*Day\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field_default-day" name="date_field_default" type="text" value="23" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field_default-day" name="date_field_default" type="text" value="23" inputmode="numeric">
           - <label class="govuk-label govuk-date-input__label" for="date_field_default-month">\s*Month\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field_default-month" name="date_field_default" type="text" value="11" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date_field_default-month" name="date_field_default" type="text" value="11" inputmode="numeric">
           - <label class="govuk-label govuk-date-input__label" for="date_field_default-year">\s*Year\s*</label>
-          - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field_default-year" name="date_field_default" type="text" value="2020" pattern="\[0-9\]\*" inputmode="numeric">
+          - <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date_field_default-year" name="date_field_default" type="text" value="2020" inputmode="numeric">
           - <div id="date_field_default-hint" class="govuk-hint">\s*DateFieldHint\s*</div>
 
 TestEmailField:
@@ -312,7 +312,7 @@ TestCharacterCountField:
         - <textarea class="govuk-textarea govuk-js-character-count" id="charactercount_field" name="charactercount_field" rows="5" aria-describedby="charactercount_field-info charactercount_field-hint" required="required"></textarea>
         - <label class="govuk-label" for="charactercount_field">\s*CharacterCountField\s*</label>
         - <div id="charactercount_field-hint" class="govuk-hint">\s*CharacterCountFieldHint\s*</div>
-        - <div id="charactercount_field-info" class="govuk-hint govuk-character-count__message" aria-live="polite">\s*You can enter up to 200 characters\s*</div>
+        - <div id="charactercount_field-info" class="govuk-hint govuk-character-count__message">\s*You can enter up to 200 characters\s*</div>
     test_output_sanitized:
       request:
         method: post
@@ -333,7 +333,7 @@ TestCharacterCountField:
         - <textarea class="govuk-textarea govuk-js-character-count" id="charactercount_field" name="charactercount_field" rows="5" aria-describedby="charactercount_field-info charactercount_field-hint" required="required">Foo\n&lt;p&gt;Bar&lt;/p&gt;\s*</textarea>
         - <label class="govuk-label" for="charactercount_field">\s*CharacterCountField\s*</label>
         - <div id="charactercount_field-hint" class="govuk-hint">\s*CharacterCountFieldHint\s*</div>
-        - <div id="charactercount_field-info" class="govuk-hint govuk-character-count__message" aria-live="polite">\s*You can enter up to 200 characters\s*</div>
+        - <div id="charactercount_field-info" class="govuk-hint govuk-character-count__message">\s*You can enter up to 200 characters\s*</div>
     test_invalid_post:
       request:
         method: post
@@ -345,7 +345,7 @@ TestCharacterCountField:
         - <p id="charactercount_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*CharacterCountField is required\s*</p>
         - <div class="govuk-form-group govuk-form-group--error">
         - <div id="charactercount_field-hint" class="govuk-hint">\s*CharacterCountFieldHint\s*</div>
-        - <div id="charactercount_field-info" class="govuk-hint govuk-character-count__message" aria-live="polite">\s*You can enter up to 200 characters\s*</div>
+        - <div id="charactercount_field-info" class="govuk-hint govuk-character-count__message">\s*You can enter up to 200 characters\s*</div>
 
 TestBooleanField:
   template: "{{ form.boolean_field }}"
@@ -725,7 +725,7 @@ TestErrorSummary:
         data:
           foo: bar
       expected_output:
-        - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
         - <h2 class="govuk-error-summary__title" id="error-summary-title">\s*There is a problem\s*</h2>
         - <a href="#string_field">StringField is required</a>
         - <a href="#date_field">Date is required</a>
@@ -802,6 +802,6 @@ TestErrorSummary:
           charactercount_field: foo
           float_field: 1.5
       expected_output:
-        - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        - <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary">
         - <h2 class="govuk-error-summary__title" id="error-summary-title">\s*There is a problem\s*</h2>
         - <a href="#string_field">Example serverside error - type &#34;John Smith&#34; into this field to suppress it</a>

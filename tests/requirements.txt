@@ -6,37 +6,39 @@
 #
 attrs==21.4.0
     # via pytest
-click==8.0.3
+click==8.1.3
     # via flask
-coverage[toml]==6.2
+coverage[toml]==6.4.2
     # via pytest-cov
 deepmerge==1.0.1
     # via -r requirements.in
-dnspython==2.1.0
+dnspython==2.2.1
     # via email-validator
-email_validator==1.1.3
+email-validator==1.2.1
     # via -r requirements.in
-flask==2.0.2
+flask==2.1.3
     # via
     #   -r requirements.in
     #   flask-wtf
-flask-wtf==1.0.0
+flask-wtf==1.0.1
     # via -r requirements.in
-govuk-frontend-jinja==2.0.0
+govuk-frontend-jinja==2.3.0
     # via -r requirements.in
 idna==3.3
     # via email-validator
+importlib-metadata==4.12.0
+    # via flask
 iniconfig==1.1.1
     # via pytest
-itsdangerous==2.0.1
+itsdangerous==2.1.2
     # via
     #   flask
     #   flask-wtf
-jinja2==3.0.3
+jinja2==3.1.2
     # via
     #   flask
     #   govuk-frontend-jinja
-markupsafe==2.0.1
+markupsafe==2.1.1
     # via
     #   jinja2
     #   wtforms
@@ -46,19 +48,21 @@ pluggy==1.0.0
     # via pytest
 py==1.11.0
     # via pytest
-pyparsing==3.0.6
+pyparsing==3.0.9
     # via packaging
-pytest==6.2.5
+pytest==7.1.2
     # via pytest-cov
 pytest-cov==3.0.0
     # via -r requirements.in
 pyyaml==6.0
     # via -r requirements.in
-toml==0.10.2
-    # via pytest
-tomli==2.0.0
-    # via coverage
-werkzeug==2.0.2
+tomli==2.0.1
+    # via
+    #   coverage
+    #   pytest
+werkzeug==2.1.2
     # via flask
 wtforms==3.0.1
     # via flask-wtf
+zipp==3.8.1
+    # via importlib-metadata

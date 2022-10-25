@@ -1,4 +1,4 @@
-deepmerge==1.0.1
+deepmerge==1.1.0
 email_validator==1.2.1
 flask-wtf==1.0.1
 flask==2.1.3

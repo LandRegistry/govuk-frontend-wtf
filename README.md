@@ -10,9 +10,7 @@ This repository contains a set of [WTForms widgets](https://wtforms.readthedocs.
 
 This approach also renders the associated error messages in the appropriate place, shows the error summary component at the top of the page and sets all related accessibility ARIA attributes. Adding the appropriate [widget](#widgets) to your existing form Python class, along with far simpler templates, makes it quick and easy to produce fully GOV.UK compliant forms.
 
-- Package: [https://pypi.org/project/govuk-frontend-wtf/](https://pypi.org/project/govuk-frontend-wtf/)
-- Demo app: [https://github.com/LandRegistry/govuk-frontend-wtf-demo](https://github.com/LandRegistry/govuk-frontend-wtf-demo)
-- Live demo: [https://govuk-frontend-wtforms.herokuapp.com/](https://govuk-frontend-wtforms.herokuapp.com/)
+If you are looking to build a fully featured Flask app that integrates with [GOV.UK Frontend Jinja](https://github.com/LandRegistry/govuk-frontend-jinja) and [GOV.UK Frontend WTForms](https://github.com/LandRegistry/govuk-frontend-wtf) please use the [GOV.UK Frontend Flask](https://github.com/LandRegistry/govuk-frontend-flask) template repository to [generate your app](https://github.com/LandRegistry/govuk-frontend-flask/generate).
 
 ## How to use
 

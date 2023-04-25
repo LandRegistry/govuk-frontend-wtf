@@ -662,7 +662,7 @@ TestSubmitButton:
   tests:
     test_empty_get:
       expected_output:
-        - <button value="y" type="submit" name="submit_button" class="govuk-button" data-module="govuk-button">
+        - <button value="y" type="submit" name="submit_button" class="govuk-button" data-module="govuk-button" id="submit_button">
 
 TestPasswordField:
   template: "{{ form.password_field(params={'spellcheck': false}) }}"

@@ -323,7 +323,6 @@ class GovSelect(GovFormBase, Select):
         return super().__call__(field, **kwargs)
 
     def map_gov_params(self, field, **kwargs):
-
         params = super().map_gov_params(field, **kwargs)
 
         params["items"] = kwargs["items"]

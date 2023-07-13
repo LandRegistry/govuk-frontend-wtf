@@ -111,7 +111,6 @@ class GovIterableBase(GovFormBase):
 
         # Merge in any extra params passed in from the template layer
         if "params" in kwargs:
-
             # Merge items individually as otherwise the merge will append new ones
             if "items" in kwargs["params"]:
                 for index, item in enumerate(kwargs["params"]["items"]):

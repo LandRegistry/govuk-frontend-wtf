@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/2.5.0..main)
 
-## [2.5.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/2.5.0) - xx/07/2023
+## [2.5.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/2.5.0) - 13/07/2023
 
 ### Added
 

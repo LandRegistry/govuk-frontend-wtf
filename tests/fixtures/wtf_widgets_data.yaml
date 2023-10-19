@@ -589,7 +589,7 @@ TestRadioField:
       request:
         method: get
         data:
-          radio_field_empty_description: foo
+          radio_field_no_description: foo
       expected_output:
         - <div class="govuk-form-group">
         - <div class="govuk-radios"    data-module="govuk-radios">
@@ -787,6 +787,7 @@ TestErrorSummary:
             - foo
             - bar
           radio_field: one
+          radio_field_no_description: one
           select_multiple_field: one
           textarea_field: foo
           charactercount_field: foo
@@ -815,6 +816,7 @@ TestErrorSummary:
             - foo
             - bar
           radio_field: one
+          radio_field_no_description: one
           select_multiple_field: one
           textarea_field: foo
           charactercount_field: foo

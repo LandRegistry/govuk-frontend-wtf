@@ -153,12 +153,11 @@ class ExampleForm(FlaskForm):
         description="RadioFieldHint",
     )
 
-    radio_field_empty_description = RadioField(
+    radio_field_no_description = RadioField(
         "RadioField",
         widget=GovRadioInput(),
         validators=[InputRequired(message="Please select an option")],
         choices=[("one", "One"), ("two", "Two"), ("three", "Three")],
-        description="RadioFieldHint",
     )
 
     file_field = FileField(

@@ -37,6 +37,44 @@ TestStringField:
         - <div class="govuk-form-group govuk-form-group--error">
         - <div id="string_field-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
 
+TestStringFieldId:
+  template: "{{ form.string_field_id }}"
+  tests:
+    test_empty_get:
+      expected_output:
+        - <input class="govuk-input" id="custom-id" name="string_field_id" type="text" aria-describedby="custom-id-hint" required="required">
+        - <label class="govuk-label" for="custom-id">\s*StringField\s*</label>
+        - <div id="custom-id-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
+    test_output_sanitized:
+      request:
+        method: post
+        data:
+          string_field_id: <script>alert("Hello")</script>
+      expected_output:
+        - <input class="govuk-input govuk-input--error" id="custom-id" name="string_field_id" type="text" value="&lt;script&gt;alert\(&#34;Hello&#34;\)&lt;/script&gt;" aria-describedby="custom-id-hint custom-id-error" required="required">
+      not_expected_output:
+        - <script>alert("Hello")</script>
+    test_valid_post:
+      request:
+        method: post
+        data:
+          string_field_id: John Smith
+      expected_output:
+        - <input class="govuk-input" id="custom-id" name="string_field_id" type="text" value="John Smith" aria-describedby="custom-id-hint" required="required">
+        - <label class="govuk-label" for="custom-id">\s*StringField\s*</label>
+        - <div id="custom-id-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
+    test_invalid_post:
+      request:
+        method: post
+        data:
+          string_field_id: foo
+      expected_output:
+        - <input class="govuk-input govuk-input--error" id="custom-id" name="string_field_id" type="text" value="foo" aria-describedby="custom-id-hint custom-id-error" required="required">
+        - <label class="govuk-label" for="custom-id">\s*StringField\s*</label>
+        - <p id="custom-id-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Example serverside error - type &#34;John Smith&#34; into this field to suppress it\s*</p>
+        - <div class="govuk-form-group govuk-form-group--error">
+        - <div id="custom-id-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
+
 TestDateField:
   template: "{{ form.date_field }}"
   tests:
@@ -746,6 +784,7 @@ TestErrorSummary:
         - <div role="alert">
         - <h2 class="govuk-error-summary__title">\s*There is a problem\s*</h2>
         - <a href="#string_field">StringField is required</a>
+        - <a href="#custom-id">StringField is required</a>
         - <a href="#date_field">Date is required</a>
         - <a href="#integer_field">IntegerField is required</a>
         - <a href="#select_field">Please select an option</a>
@@ -766,6 +805,7 @@ TestErrorSummary:
         method: post
         data:
           string_field: John Smith
+          string_field_id: John Smith
           nested_form-0-string_field: John Smith
           date_field:
             - 1
@@ -800,6 +840,7 @@ TestErrorSummary:
         method: post
         data:
           string_field: Andy
+          string_field_id: Andy
           date_field:
             - 1
             - 1

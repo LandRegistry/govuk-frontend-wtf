@@ -23,7 +23,7 @@ def wtforms_errors(form, params={}):
     id_map = {}
     for field_name in form._fields.keys():
         field = getattr(form, field_name, None)
-        if field and hasattr(field, 'id'):
+        if field and hasattr(field, "id"):
             id_map[field_name] = field.id
 
     wtforms_params["errorList"] = flatten_errors(form.errors, id_map=id_map)

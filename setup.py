@@ -44,6 +44,6 @@ setuptools.setup(
         "flask-wtf",
         "govuk-frontend-jinja>=3.0.0",
         "jinja2",
-        "wtforms",
+        "wtforms>=3.1.0",
     ],
 )

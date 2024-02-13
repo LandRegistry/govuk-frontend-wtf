@@ -562,7 +562,7 @@ TestRadioField:
     test_empty_get:
       expected_output:
         - <div class="govuk-form-group">
-        - <div class="govuk-radios"    data-module="govuk-radios">
+        - <div class="govuk-radios" data-module="govuk-radios">
         - <div class="govuk-radios__item">
         - <input class="govuk-radios__input" id="radio_field" name="radio_field" type="radio" value="one">
         - <label class="govuk-label govuk-radios__label" for="radio_field">\s*One\s*</label>
@@ -579,7 +579,7 @@ TestRadioField:
       expected_output:
         - <div class="govuk-form-group govuk-form-group--error">
         - <p id="radio_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid choice.\s*</p>
-        - <div class="govuk-radios"    data-module="govuk-radios">
+        - <div class="govuk-radios" data-module="govuk-radios">
         - <div class="govuk-radios__item">
         - <input class="govuk-radios__input" id="radio_field" name="radio_field" type="radio" value="one">
         - <label class="govuk-label govuk-radios__label" for="radio_field">\s*One\s*</label>
@@ -597,7 +597,7 @@ TestRadioField:
           radio_field: two
       expected_output:
         - <div class="govuk-form-group">
-        - <div class="govuk-radios"    data-module="govuk-radios">
+        - <div class="govuk-radios" data-module="govuk-radios">
         - <div class="govuk-radios__item">
         - <input class="govuk-radios__input" id="radio_field" name="radio_field" type="radio" value="one">
         - <label class="govuk-label govuk-radios__label" for="radio_field">\s*One\s*</label>
@@ -614,7 +614,7 @@ TestRadioField:
       expected_output:
         - <div class="govuk-form-group govuk-form-group--error">
         - <p id="radio_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Not a valid choice.\s*</p>
-        - <div class="govuk-radios"    data-module="govuk-radios">
+        - <div class="govuk-radios" data-module="govuk-radios">
         - <div class="govuk-radios__item">
         - <input class="govuk-radios__input" id="radio_field" name="radio_field" type="radio" value="one">
         - <label class="govuk-label govuk-radios__label" for="radio_field">\s*One\s*</label>
@@ -630,7 +630,7 @@ TestRadioField:
           radio_field_no_description: foo
       expected_output:
         - <div class="govuk-form-group">
-        - <div class="govuk-radios"    data-module="govuk-radios">
+        - <div class="govuk-radios" data-module="govuk-radios">
         - <div class="govuk-radios__item">
         - <input class="govuk-radios__input" id="radio_field" name="radio_field" type="radio" value="one">
         - <label class="govuk-label govuk-radios__label" for="radio_field">\s*One\s*</label>

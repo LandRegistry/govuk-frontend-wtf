@@ -28,7 +28,7 @@ class GovFormBase(object):
             "name": field.name,
             "label": {"text": field.label.text},
             "attributes": {},
-            "hint": {"text": field.description},
+            "hint": {"text": field.description} if field.description else None,
         }
 
         if "value" in kwargs:

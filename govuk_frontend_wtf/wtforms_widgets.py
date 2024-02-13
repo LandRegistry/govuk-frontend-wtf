@@ -315,7 +315,7 @@ class GovSelect(GovFormBase, Select):
         kwargs["items"] = []
 
         # Construct select box choices
-        for val, label, selected in field.iter_choices():
+        for val, label, selected, render_kw in field.iter_choices():
             item = {"text": label, "value": val, "selected": selected}
 
             kwargs["items"].append(item)

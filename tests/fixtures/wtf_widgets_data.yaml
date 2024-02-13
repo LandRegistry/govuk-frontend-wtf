@@ -37,6 +37,44 @@ TestStringField:
         - <div class="govuk-form-group govuk-form-group--error">
         - <div id="string_field-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
 
+TestStringFieldId:
+  template: "{{ form.string_field_id }}"
+  tests:
+    test_empty_get:
+      expected_output:
+        - <input class="govuk-input" id="custom-id" name="string_field_id" type="text" aria-describedby="custom-id-hint" required="required">
+        - <label class="govuk-label" for="custom-id">\s*StringField\s*</label>
+        - <div id="custom-id-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
+    test_output_sanitized:
+      request:
+        method: post
+        data:
+          string_field_id: <script>alert("Hello")</script>
+      expected_output:
+        - <input class="govuk-input govuk-input--error" id="custom-id" name="string_field_id" type="text" value="&lt;script&gt;alert\(&#34;Hello&#34;\)&lt;/script&gt;" aria-describedby="custom-id-hint custom-id-error" required="required">
+      not_expected_output:
+        - <script>alert("Hello")</script>
+    test_valid_post:
+      request:
+        method: post
+        data:
+          string_field_id: John Smith
+      expected_output:
+        - <input class="govuk-input" id="custom-id" name="string_field_id" type="text" value="John Smith" aria-describedby="custom-id-hint" required="required">
+        - <label class="govuk-label" for="custom-id">\s*StringField\s*</label>
+        - <div id="custom-id-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
+    test_invalid_post:
+      request:
+        method: post
+        data:
+          string_field_id: foo
+      expected_output:
+        - <input class="govuk-input govuk-input--error" id="custom-id" name="string_field_id" type="text" value="foo" aria-describedby="custom-id-hint custom-id-error" required="required">
+        - <label class="govuk-label" for="custom-id">\s*StringField\s*</label>
+        - <p id="custom-id-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Example serverside error - type &#34;John Smith&#34; into this field to suppress it\s*</p>
+        - <div class="govuk-form-group govuk-form-group--error">
+        - <div id="custom-id-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
+
 TestDateField:
   template: "{{ form.date_field }}"
   tests:
@@ -585,6 +623,23 @@ TestRadioField:
         - <input class="govuk-radios__input" id="radio_field-3" name="radio_field" type="radio" value="three">
         - <label class="govuk-label govuk-radios__label" for="radio_field-3">\s*Three\s*</label>
         - <div id="radio_field-hint" class="govuk-hint">\s*RadioFieldHint\s*</div>
+    test_empty_description:
+      request:
+        method: get
+        data:
+          radio_field_no_description: foo
+      expected_output:
+        - <div class="govuk-form-group">
+        - <div class="govuk-radios"    data-module="govuk-radios">
+        - <div class="govuk-radios__item">
+        - <input class="govuk-radios__input" id="radio_field" name="radio_field" type="radio" value="one">
+        - <label class="govuk-label govuk-radios__label" for="radio_field">\s*One\s*</label>
+        - <input class="govuk-radios__input" id="radio_field-2" name="radio_field" type="radio" value="two">
+        - label class="govuk-label govuk-radios__label" for="radio_field-2">\s*Two\s*</label>
+        - <input class="govuk-radios__input" id="radio_field-3" name="radio_field" type="radio" value="three">
+        - <label class="govuk-label govuk-radios__label" for="radio_field-3">\s*Three\s*</label>
+      not_expected_output:
+        - <div id="radio_field-hint" class="govuk-hint"></div>
 
 TestFileField:
   template: "{{ form.file_field }}"
@@ -729,6 +784,7 @@ TestErrorSummary:
         - <div role="alert">
         - <h2 class="govuk-error-summary__title">\s*There is a problem\s*</h2>
         - <a href="#string_field">StringField is required</a>
+        - <a href="#custom-id">StringField is required</a>
         - <a href="#date_field">Date is required</a>
         - <a href="#integer_field">IntegerField is required</a>
         - <a href="#select_field">Please select an option</a>
@@ -749,6 +805,7 @@ TestErrorSummary:
         method: post
         data:
           string_field: John Smith
+          string_field_id: John Smith
           nested_form-0-string_field: John Smith
           date_field:
             - 1
@@ -770,6 +827,7 @@ TestErrorSummary:
             - foo
             - bar
           radio_field: one
+          radio_field_no_description: one
           select_multiple_field: one
           textarea_field: foo
           charactercount_field: foo
@@ -782,6 +840,7 @@ TestErrorSummary:
         method: post
         data:
           string_field: Andy
+          string_field_id: Andy
           date_field:
             - 1
             - 1
@@ -798,6 +857,7 @@ TestErrorSummary:
             - foo
             - bar
           radio_field: one
+          radio_field_no_description: one
           select_multiple_field: one
           textarea_field: foo
           charactercount_field: foo

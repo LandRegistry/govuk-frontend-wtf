@@ -54,6 +54,14 @@ class ExampleForm(FlaskForm):
         description="StringFieldHint",
     )
 
+    string_field_id = StringField(
+        "StringField",
+        id="custom-id",
+        widget=GovTextInput(),
+        validators=[InputRequired(message="StringField is required")],
+        description="StringFieldHint",
+    )
+
     date_field = DateField(
         "DateField",
         format="%d %m %Y",
@@ -153,6 +161,13 @@ class ExampleForm(FlaskForm):
         description="RadioFieldHint",
     )
 
+    radio_field_no_description = RadioField(
+        "RadioField",
+        widget=GovRadioInput(),
+        validators=[InputRequired(message="Please select an option")],
+        choices=[("one", "One"), ("two", "Two"), ("three", "Three")],
+    )
+
     file_field = FileField(
         "FileField",
         widget=GovFileInput(),
@@ -195,5 +210,9 @@ class ExampleForm(FlaskForm):
     submit_button = SubmitField("SubmitField", widget=GovSubmitInput())
 
     def validate_string_field(self, field):
+        if field.data != "John Smith":
+            raise ValidationError('Example serverside error - type "John Smith" into this field to suppress it')
+
+    def validate_string_field_id(self, field):
         if field.data != "John Smith":
             raise ValidationError('Example serverside error - type "John Smith" into this field to suppress it')

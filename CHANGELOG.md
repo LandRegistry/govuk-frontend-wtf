@@ -4,7 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/2.5.0..main)
+## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/3.0.0..main)
+
+## [3.0.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/3.0.0) - 13/02/2024
+
+### Added
+
+- [GOV.UK Frontend v5.1.0](https://github.com/alphagov/govuk-frontend/releases/tag/v5.1.0) support
+- WTForms 3.1 support
+- Python 3.12 support
+
+### Fixed
+
+- Avoid rendering an empty hint [#82](https://github.com/LandRegistry/govuk-frontend-wtf/pull/82). Thanks [andreyyudin](https://github.com/andreyyudin)
+- Use id for errors [#84](https://github.com/LandRegistry/govuk-frontend-wtf/pull/84). Thanks [andreyyudin](https://github.com/andreyyudin)
 
 ## [2.5.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/2.5.0) - 13/07/2023
 
@@ -21,6 +34,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - Upgraded dependencies
+
+### Removed
+
+- Python 3.7 support
 
 ## [2.3.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/2.3.0) - 15/02/2023
 

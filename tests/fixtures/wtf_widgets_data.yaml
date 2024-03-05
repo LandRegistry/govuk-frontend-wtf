@@ -75,6 +75,16 @@ TestStringFieldId:
         - <div class="govuk-form-group govuk-form-group--error">
         - <div id="custom-id-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
 
+TestStringFieldNoDescription:
+  template: "{{ form.string_field_no_description }}"
+  tests:
+    test_empty_description:
+      expected_output:
+        - <input class="govuk-input" id="string_field_no_description" name="string_field_no_description" type="text" required="required">
+        - <label class="govuk-label" for="string_field_no_description">\s*StringField\s*</label>
+      not_expected_output:
+        - <div id="string_field_no_description-hint" class="govuk-hint">\s*</div>
+
 TestDateField:
   template: "{{ form.date_field }}"
   tests:
@@ -806,6 +816,7 @@ TestErrorSummary:
         data:
           string_field: John Smith
           string_field_id: John Smith
+          string_field_no_description: John Smith
           nested_form-0-string_field: John Smith
           date_field:
             - 1
@@ -841,6 +852,7 @@ TestErrorSummary:
         data:
           string_field: Andy
           string_field_id: Andy
+          string_field_no_description: Andy
           date_field:
             - 1
             - 1

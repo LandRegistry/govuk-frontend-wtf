@@ -62,6 +62,12 @@ class ExampleForm(FlaskForm):
         description="StringFieldHint",
     )
 
+    string_field_no_description = StringField(
+        "StringField",
+        widget=GovTextInput(),
+        validators=[InputRequired(message="StringField is required")],
+    )
+
     date_field = DateField(
         "DateField",
         format="%d %m %Y",

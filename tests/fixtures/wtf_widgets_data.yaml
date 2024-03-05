@@ -623,23 +623,23 @@ TestRadioField:
         - <input class="govuk-radios__input" id="radio_field-3" name="radio_field" type="radio" value="three">
         - <label class="govuk-label govuk-radios__label" for="radio_field-3">\s*Three\s*</label>
         - <div id="radio_field-hint" class="govuk-hint">\s*RadioFieldHint\s*</div>
+
+TestRadioFieldNoDescription:
+  template: "{{ form.radio_field_no_description }}"
+  tests:
     test_empty_description:
-      request:
-        method: get
-        data:
-          radio_field_no_description: foo
       expected_output:
         - <div class="govuk-form-group">
         - <div class="govuk-radios" data-module="govuk-radios">
         - <div class="govuk-radios__item">
-        - <input class="govuk-radios__input" id="radio_field" name="radio_field" type="radio" value="one">
-        - <label class="govuk-label govuk-radios__label" for="radio_field">\s*One\s*</label>
-        - <input class="govuk-radios__input" id="radio_field-2" name="radio_field" type="radio" value="two">
-        - label class="govuk-label govuk-radios__label" for="radio_field-2">\s*Two\s*</label>
-        - <input class="govuk-radios__input" id="radio_field-3" name="radio_field" type="radio" value="three">
-        - <label class="govuk-label govuk-radios__label" for="radio_field-3">\s*Three\s*</label>
+        - <input class="govuk-radios__input" id="radio_field_no_description" name="radio_field_no_description" type="radio" value="one">
+        - <label class="govuk-label govuk-radios__label" for="radio_field_no_description">\s*One\s*</label>
+        - <input class="govuk-radios__input" id="radio_field_no_description-2" name="radio_field_no_description" type="radio" value="two">
+        - <label class="govuk-label govuk-radios__label" for="radio_field_no_description-2">\s*Two\s*</label>
+        - <input class="govuk-radios__input" id="radio_field_no_description-3" name="radio_field_no_description" type="radio" value="three">
+        - <label class="govuk-label govuk-radios__label" for="radio_field_no_description-3">\s*Three\s*</label>
       not_expected_output:
-        - <div id="radio_field-hint" class="govuk-hint"></div>
+        - <div id="radio_field_no_description-hint" class="govuk-hint">\s*</div>
 
 TestFileField:
   template: "{{ form.file_field }}"

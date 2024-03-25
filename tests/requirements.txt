@@ -9,23 +9,21 @@ blinker==1.7.0
 click==8.1.7
     # via flask
 coverage[toml]==7.4.1
-    # via
-    #   coverage
-    #   pytest-cov
+    # via pytest-cov
 deepmerge==1.1.1
-    # via -r requirements.in
+    # via -r tests/requirements.in
 dnspython==2.5.0
     # via email-validator
 email-validator==2.1.0.post1
-    # via -r requirements.in
+    # via -r tests/requirements.in
 flask==3.0.2
     # via
-    #   -r requirements.in
+    #   -r tests/requirements.in
     #   flask-wtf
 flask-wtf==1.2.1
-    # via -r requirements.in
+    # via -r tests/requirements.in
 govuk-frontend-jinja==3.0.0
-    # via -r requirements.in
+    # via -r tests/requirements.in
 idna==3.6
     # via email-validator
 iniconfig==2.0.0
@@ -49,10 +47,10 @@ pluggy==1.4.0
     # via pytest
 pytest==8.0.0
     # via pytest-cov
-pytest-cov==4.1.0
-    # via -r requirements.in
+pytest-cov==5.0.0
+    # via -r tests/requirements.in
 pyyaml==6.0.1
-    # via -r requirements.in
+    # via -r tests/requirements.in
 werkzeug==3.0.1
     # via flask
 wtforms==3.1.2

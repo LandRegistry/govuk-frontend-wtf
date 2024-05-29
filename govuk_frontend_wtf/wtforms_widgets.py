@@ -37,17 +37,13 @@ class GovTextInput(GovInput, TextInput):
     input_type = "text"
 
 
-class GovPasswordInput(GovInput, PasswordInput):
-    """Render a password input.
+class GovPasswordInput(GovFormBase, PasswordInput):
+    """Render a password input."""
 
-    For security purposes, this field will not reproduce the value on a form
-    submit by default. To have the value filled in, set `hide_value` to
-    `False`.
-    """
+    template = "govuk_frontend_wtf/password.html"
 
     def __call__(self, field, **kwargs):
-        if self.hide_value:
-            kwargs["value"] = ""
+        kwargs.setdefault("id", field.id)
         return super().__call__(field, **kwargs)
 
 

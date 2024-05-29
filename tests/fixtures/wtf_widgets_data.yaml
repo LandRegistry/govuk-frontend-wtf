@@ -4,7 +4,7 @@ TestStringField:
   tests:
     test_empty_get:
       expected_output:
-        - <input class="govuk-input" id="string_field" name="string_field" type="text" aria-describedby="string_field-hint" required="required">
+        - <input class="govuk-input" id="string_field" name="string_field" type="text" value="" aria-describedby="string_field-hint" required="required">
         - <label class="govuk-label" for="string_field">\s*StringField\s*</label>
         - <div id="string_field-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
     test_output_sanitized:
@@ -42,7 +42,7 @@ TestStringFieldId:
   tests:
     test_empty_get:
       expected_output:
-        - <input class="govuk-input" id="custom-id" name="string_field_id" type="text" aria-describedby="custom-id-hint" required="required">
+        - <input class="govuk-input" id="custom-id" name="string_field_id" type="text" value="" aria-describedby="custom-id-hint" required="required">
         - <label class="govuk-label" for="custom-id">\s*StringField\s*</label>
         - <div id="custom-id-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
     test_output_sanitized:
@@ -157,7 +157,7 @@ TestEmailField:
       expected_output:
         - <div id="email_field-hint" class="govuk-hint">\s*EmailFieldHint\s*</div>
         - <label class="govuk-label" for="email_field">\s*EmailField\s*</label>
-        - <input class="govuk-input" id="email_field" name="email_field" type="email" spellcheck="false" aria-describedby="email_field-hint" autocomplete="email" required="required">
+        - <input class="govuk-input" id="email_field" name="email_field" type="email" spellcheck="false" value="" aria-describedby="email_field-hint" autocomplete="email" required="required">
     test_output_sanitized:
       request:
         method: post
@@ -193,7 +193,7 @@ TestFloatField:
   tests:
     test_empty_get:
       expected_output:
-        - <input class="govuk-input" id="float_field" name="float_field" type="text" aria-describedby="float_field-hint" required="required">
+        - <input class="govuk-input" id="float_field" name="float_field" type="text" value="" aria-describedby="float_field-hint" required="required">
         - <label class="govuk-label" for="float_field">\s*FloatField\s*</label>
         - <div id="float_field-hint" class="govuk-hint">\s*FloatFieldHint\s*</div>
     test_output_sanitized:
@@ -231,7 +231,7 @@ TestIntegerField:
   tests:
     test_empty_get:
       expected_output:
-        - <input class="govuk-input" id="integer_field" name="integer_field" type="text" aria-describedby="integer_field-hint" required="required">
+        - <input class="govuk-input" id="integer_field" name="integer_field" type="text" value="" aria-describedby="integer_field-hint" required="required">
         - <label class="govuk-label" for="integer_field">\s*IntegerField\s*</label>
         - <div id="integer_field-hint" class="govuk-hint">\s*IntegerFieldHint\s*</div>
     test_output_sanitized:
@@ -269,7 +269,7 @@ TestDecimalField:
   tests:
     test_empty_get:
       expected_output:
-        - <input class="govuk-input" id="decimal_field" name="decimal_field" type="text" aria-describedby="decimal_field-hint" required="required">
+        - <input class="govuk-input" id="decimal_field" name="decimal_field" type="text" value="" aria-describedby="decimal_field-hint" required="required">
         - <label class="govuk-label" for="decimal_field">\s*DecimalField\s*</label>
         - <div id="decimal_field-hint" class="govuk-hint">\s*DecimalFieldHint\s*</div>
     test_output_sanitized:
@@ -381,7 +381,7 @@ TestCharacterCountField:
         - <textarea class="govuk-textarea govuk-textarea--error govuk-js-character-count" id="charactercount_field" name="charactercount_field" rows="5" aria-describedby="charactercount_field-info charactercount_field-hint charactercount_field-error" required="required"></textarea>
         - <label class="govuk-label" for="charactercount_field">\s*CharacterCountField\s*</label>
         - <p id="charactercount_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*CharacterCountField is required\s*</p>
-        - <div class="govuk-form-group govuk-form-group--error">
+        - <div class="govuk-form-group govuk-form-group--error govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
         - <div id="charactercount_field-hint" class="govuk-hint">\s*CharacterCountFieldHint\s*</div>
         - <div id="charactercount_field-info" class="govuk-hint govuk-character-count__message">\s*You can enter up to 200 characters\s*</div>
 
@@ -696,7 +696,7 @@ TestNestedForm:
       expected_output:
         - <div class="govuk-form-group">
         - <label for="nested_form-0">Nested Form-0</label>
-        - <input class="govuk-input" id="nested_form-0-string_field" name="nested_form-0-string_field" type="text" aria-describedby="nested_form-0-string_field-hint" required="required">
+        - <input class="govuk-input" id="nested_form-0-string_field" name="nested_form-0-string_field" type="text" value="" aria-describedby="nested_form-0-string_field-hint" required="required">
         - <div id="nested_form-0-string_field-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
     test_output_sanitized:
       request:
@@ -720,14 +720,16 @@ TestSubmitButton:
         - <button value="y" type="submit" name="submit_button" class="govuk-button" data-module="govuk-button" id="submit_button">
 
 TestPasswordField:
-  template: "{{ form.password_field(params={'spellcheck': false}) }}"
+  template: "{{ form.password_field }}"
   tests:
     test_empty_get:
       expected_output:
-        - <div class="govuk-form-group">
+        - <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
-        - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
         - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
+        - <div class="govuk-input__wrapper govuk-password-input__wrapper">
+        - <input class="govuk-input govuk-password-input__input govuk-js-password-input-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" autocomplete="current-password" autocapitalize="none">
+        - <button type="button" class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="password_field" aria-label="Show password" hidden>\s*Show\s*</button>
     test_output_sanitized:
       request:
         method: post
@@ -735,10 +737,12 @@ TestPasswordField:
           password_field: <script>alert("Hello")</script>
           password_retype_field: <script>alert("Hello")</script>
       expected_output:
-        # No error here - the data will merely have been accepted as a valid password
-        # But we still want to ensure the value hasn't made it into the html unsanitized
-        - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
+        - <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
+        - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
         - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
+        - <div class="govuk-input__wrapper govuk-password-input__wrapper">
+        - <input class="govuk-input govuk-password-input__input govuk-js-password-input-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" autocomplete="current-password" autocapitalize="none">
+        - <button type="button" class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="password_field" aria-label="Show password" hidden>\s*Show\s*</button>
       not_expected_output:
         - <script>alert("Hello")</script>
     test_valid_post:
@@ -748,11 +752,12 @@ TestPasswordField:
           password_field: foo
           password_retype_field: foo
       expected_output:
-        - <div class="govuk-form-group">
+        - <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
-        # Ensure that passwords are not represented in the output for security reasons
-        - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
         - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
+        - <div class="govuk-input__wrapper govuk-password-input__wrapper">
+        - <input class="govuk-input govuk-password-input__input govuk-js-password-input-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" autocomplete="current-password" autocapitalize="none">
+        - <button type="button" class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="password_field" aria-label="Show password" hidden>\s*Show\s*</button>
     test_invalid_post:
       request:
         method: post
@@ -760,12 +765,13 @@ TestPasswordField:
           password_field: foo
           password_retype_field: bar
       expected_output:
-        - <div class="govuk-form-group govuk-form-group--error">
+        - <div class="govuk-form-group govuk-form-group--error govuk-password-input" data-module="govuk-password-input">
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
-        - <p id="password_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Please ensure both password fields match\s*</p>
-        # Ensure that passwords are not represented in the output for security reasons
-        - input class="govuk-input govuk-input--error" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint password_field-error" required="required">
         - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
+        - <p id="password_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Please ensure both password fields match\s*</p>
+        - <div class="govuk-input__wrapper govuk-password-input__wrapper">
+        - <input class="govuk-input govuk-password-input__input govuk-js-password-input-input govuk-input--error" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint password_field-error" autocomplete="current-password" autocapitalize="none">
+        - <button type="button" class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="password_field" aria-label="Show password" hidden>\s*Show\s*</button>
 
 TestErrorSummary:
   template: >

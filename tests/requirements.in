@@ -1,7 +1,7 @@
 deepmerge==1.1.1
-email_validator==2.1.0.post1
+email_validator==2.1.1
 flask-wtf==1.2.1
-flask==3.0.2
-govuk-frontend-jinja>=3.0.0
-pytest-cov==4.1.0
+flask==3.0.3
+govuk-frontend-jinja==3.1.0
+pytest-cov==5.0.0
 pyyaml==6.0.1

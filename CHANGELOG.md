@@ -99,7 +99,7 @@ From [#38](https://github.com/LandRegistry/govuk-frontend-wtf/pull/38), thanks t
 
 ### Added
 
-- Support for WTForms v3.1.0
+- Support for WTForms v3.0.0
 
 ### Fixed
 

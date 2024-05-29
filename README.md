@@ -6,7 +6,7 @@
 
 **GOV.UK Frontend WTForms is a [community tool](https://design-system.service.gov.uk/community/resources-and-tools/) of the [GOV.UK Design System](https://design-system.service.gov.uk/). The Design System team is not responsible for it and cannot support you with using it. Contact the [maintainers](#contributors) directly if you need [help](#support) or you want to request a feature.**
 
-This repository contains a set of [WTForms widgets](https://wtforms.readthedocs.io/en/2.3.x/widgets/) used to render [WTForm fields](https://wtforms.readthedocs.io/en/2.3.x/fields/) using [GOV.UK Frontend](https://design-system.service.gov.uk/) component styling. This is done using Jinja macros from the [GOV.UK Frontend Jinja](https://github.com/LandRegistry/govuk-frontend-jinja) port of the original GOV.UK Frontend Nunjucks macros. These are kept up-to-date with GOV.UK Frontend releases, are thoroughly tested and produce 100% equivalent markup.
+This repository contains a set of [WTForms widgets](https://wtforms.readthedocs.io/en/3.1.x/widgets/) used to render [WTForm fields](https://wtforms.readthedocs.io/en/3.1.x/fields/) using [GOV.UK Frontend](https://design-system.service.gov.uk/) component styling. This is done using Jinja macros from the [GOV.UK Frontend Jinja](https://github.com/LandRegistry/govuk-frontend-jinja) port of the original GOV.UK Frontend Nunjucks macros. These are kept up-to-date with GOV.UK Frontend releases, are thoroughly tested and produce 100% equivalent markup.
 
 This approach also renders the associated error messages in the appropriate place, shows the error summary component at the top of the page and sets all related accessibility ARIA attributes. Adding the appropriate [widget](#widgets) to your existing form Python class, along with far simpler templates, makes it quick and easy to produce fully GOV.UK compliant forms.
 
@@ -134,21 +134,21 @@ The available widgets and their corresponding Flask-WTF field types are as follo
 
 | WTForms Field                                                                                             | GOV.​UK Widget(s)               | Notes |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------ | ----- |
-| [BooleanField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.BooleanField)               | GovCheckboxInput               |       |
-| [DateField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateField)                     | GovDateInput                   |       |
-| [DateTimeField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DateTimeField)             | GovDateInput                   |       |
-| [DecimalField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.DecimalField)               | GovTextInput                   |       |
-| [FileField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.FileField)                     | GovFileInput                   |       |
-| [MultipleFileField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.MultipleFileField)     | GovFileInput(multiple=True)    | Note that you need to specify `multiple=True` when invoking the widget in your form class. _Not_ when you render it in the Jinja template. |
-| [FloatField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.FloatField)                   | GovTextInput                   |       |
-| [IntegerField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.IntegerField)               | GovTextInput                   | Use `params` to specify a `type` if you need to use HTML5 number elements. This will not happen automatically. |
-| [PasswordField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.PasswordField)             | GovPasswordInput               |       |
-| [RadioField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.RadioField)                   | GovRadioInput                  |       |
-| [SelectField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SelectField)                 | GovSelect                      |       |
-| [SelectMultipleField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SelectMultipleField) | GovCheckboxesInput             | Note that this renders checkboxes as `<select multiple>` elements are frowned upon. |
-| [SubmitField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SubmitField)                 | GovSubmitInput                 |       |
-| [StringField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.StringField)                 | GovTextInput                   |       |
-| [TextAreaField](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.TextAreaField)             | GovTextArea, GovCharacterCount |       |
+| [BooleanField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.BooleanField)               | GovCheckboxInput               |       |
+| [DateField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.DateField)                     | GovDateInput                   |       |
+| [DateTimeField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.DateTimeField)             | GovDateInput                   |       |
+| [DecimalField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.DecimalField)               | GovTextInput                   |       |
+| [FileField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.FileField)                     | GovFileInput                   |       |
+| [MultipleFileField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.MultipleFileField)     | GovFileInput(multiple=True)    | Note that you need to specify `multiple=True` when invoking the widget in your form class. _Not_ when you render it in the Jinja template. |
+| [FloatField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.FloatField)                   | GovTextInput                   |       |
+| [IntegerField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.IntegerField)               | GovTextInput                   | Use `params` to specify a `type` if you need to use HTML5 number elements. This will not happen automatically. |
+| [PasswordField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.PasswordField)             | GovPasswordInput               |       |
+| [RadioField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.RadioField)                   | GovRadioInput                  |       |
+| [SelectField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.SelectField)                 | GovSelect                      |       |
+| [SelectMultipleField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.SelectMultipleField) | GovCheckboxesInput             | Note that this renders checkboxes as `<select multiple>` elements are frowned upon. |
+| [SubmitField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.SubmitField)                 | GovSubmitInput                 |       |
+| [StringField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.StringField)                 | GovTextInput                   |       |
+| [TextAreaField](https://wtforms.readthedocs.io/en/3.1.x/fields/#wtforms.fields.TextAreaField)             | GovTextArea, GovCharacterCount |       |
 
 In order to generate things like email fields using `GovTextInput` you will need to pass additional params through when rendering it as follows:
 

@@ -720,14 +720,16 @@ TestSubmitButton:
         - <button value="y" type="submit" name="submit_button" class="govuk-button" data-module="govuk-button" id="submit_button">
 
 TestPasswordField:
-  template: "{{ form.password_field(params={'spellcheck': false}) }}"
+  template: "{{ form.password_field }}"
   tests:
     test_empty_get:
       expected_output:
-        - <div class="govuk-form-group">
+        - <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
-        - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
         - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
+        - <div class="govuk-input__wrapper govuk-password-input__wrapper">
+        - <input class="govuk-input govuk-password-input__input govuk-js-password-input-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" autocomplete="current-password" autocapitalize="none">
+        - <button type="button" class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="password_field" aria-label="Show password" hidden>\s*Show\s*</button>
     test_output_sanitized:
       request:
         method: post
@@ -735,10 +737,12 @@ TestPasswordField:
           password_field: <script>alert("Hello")</script>
           password_retype_field: <script>alert("Hello")</script>
       expected_output:
-        # No error here - the data will merely have been accepted as a valid password
-        # But we still want to ensure the value hasn't made it into the html unsanitized
-        - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
+        - <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
+        - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
         - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
+        - <div class="govuk-input__wrapper govuk-password-input__wrapper">
+        - <input class="govuk-input govuk-password-input__input govuk-js-password-input-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" autocomplete="current-password" autocapitalize="none">
+        - <button type="button" class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="password_field" aria-label="Show password" hidden>\s*Show\s*</button>
       not_expected_output:
         - <script>alert("Hello")</script>
     test_valid_post:
@@ -748,11 +752,12 @@ TestPasswordField:
           password_field: foo
           password_retype_field: foo
       expected_output:
-        - <div class="govuk-form-group">
+        - <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
-        # Ensure that passwords are not represented in the output for security reasons
-        - <input class="govuk-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" required="required">
         - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
+        - <div class="govuk-input__wrapper govuk-password-input__wrapper">
+        - <input class="govuk-input govuk-password-input__input govuk-js-password-input-input" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint" autocomplete="current-password" autocapitalize="none">
+        - <button type="button" class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="password_field" aria-label="Show password" hidden>\s*Show\s*</button>
     test_invalid_post:
       request:
         method: post
@@ -760,12 +765,13 @@ TestPasswordField:
           password_field: foo
           password_retype_field: bar
       expected_output:
-        - <div class="govuk-form-group govuk-form-group--error">
+        - <div class="govuk-form-group govuk-form-group--error govuk-password-input" data-module="govuk-password-input">
         - <label class="govuk-label" for="password_field">\s*PasswordField\s*</label>
-        - <p id="password_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Please ensure both password fields match\s*</p>
-        # Ensure that passwords are not represented in the output for security reasons
-        - input class="govuk-input govuk-input--error" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint password_field-error" required="required">
         - <div id="password_field-hint" class="govuk-hint">\s*PasswordFieldHint\s*</div>
+        - <p id="password_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*Please ensure both password fields match\s*</p>
+        - <div class="govuk-input__wrapper govuk-password-input__wrapper">
+        - <input class="govuk-input govuk-password-input__input govuk-js-password-input-input govuk-input--error" id="password_field" name="password_field" type="password" spellcheck="false" aria-describedby="password_field-hint password_field-error" autocomplete="current-password" autocapitalize="none">
+        - <button type="button" class="govuk-button govuk-button--secondary govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="password_field" aria-label="Show password" hidden>\s*Show\s*</button>
 
 TestErrorSummary:
   template: >

@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/3.0.0..main)
+## [Unreleased](https://github.com/LandRegistry/govuk-frontend-wtf/compare/3.1.0..main)
+
+## [3.1.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/3.1.0) - xx/xx/2024
+
+### Added
+
+- [GOV.UK Frontend v5.4.0](https://github.com/alphagov/govuk-frontend/releases/tag/v5.4.0) support
+- Use new GOV.UK password input component for PasswordInput fields
 
 ## [3.0.0](https://github.com/LandRegistry/govuk-frontend-wtf/releases/tag/3.0.0) - 13/02/2024
 
@@ -92,7 +99,7 @@ From [#38](https://github.com/LandRegistry/govuk-frontend-wtf/pull/38), thanks t
 
 ### Added
 
-- Support for WTForms v3.0.0
+- Support for WTForms v3.1.0
 
 ### Fixed
 

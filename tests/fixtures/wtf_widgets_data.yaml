@@ -4,7 +4,7 @@ TestStringField:
   tests:
     test_empty_get:
       expected_output:
-        - <input class="govuk-input" id="string_field" name="string_field" type="text" aria-describedby="string_field-hint" required="required">
+        - <input class="govuk-input" id="string_field" name="string_field" type="text" value="" aria-describedby="string_field-hint" required="required">
         - <label class="govuk-label" for="string_field">\s*StringField\s*</label>
         - <div id="string_field-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
     test_output_sanitized:
@@ -42,7 +42,7 @@ TestStringFieldId:
   tests:
     test_empty_get:
       expected_output:
-        - <input class="govuk-input" id="custom-id" name="string_field_id" type="text" aria-describedby="custom-id-hint" required="required">
+        - <input class="govuk-input" id="custom-id" name="string_field_id" type="text" value="" aria-describedby="custom-id-hint" required="required">
         - <label class="govuk-label" for="custom-id">\s*StringField\s*</label>
         - <div id="custom-id-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
     test_output_sanitized:
@@ -157,7 +157,7 @@ TestEmailField:
       expected_output:
         - <div id="email_field-hint" class="govuk-hint">\s*EmailFieldHint\s*</div>
         - <label class="govuk-label" for="email_field">\s*EmailField\s*</label>
-        - <input class="govuk-input" id="email_field" name="email_field" type="email" spellcheck="false" aria-describedby="email_field-hint" autocomplete="email" required="required">
+        - <input class="govuk-input" id="email_field" name="email_field" type="email" spellcheck="false" value="" aria-describedby="email_field-hint" autocomplete="email" required="required">
     test_output_sanitized:
       request:
         method: post
@@ -193,7 +193,7 @@ TestFloatField:
   tests:
     test_empty_get:
       expected_output:
-        - <input class="govuk-input" id="float_field" name="float_field" type="text" aria-describedby="float_field-hint" required="required">
+        - <input class="govuk-input" id="float_field" name="float_field" type="text" value="" aria-describedby="float_field-hint" required="required">
         - <label class="govuk-label" for="float_field">\s*FloatField\s*</label>
         - <div id="float_field-hint" class="govuk-hint">\s*FloatFieldHint\s*</div>
     test_output_sanitized:
@@ -231,7 +231,7 @@ TestIntegerField:
   tests:
     test_empty_get:
       expected_output:
-        - <input class="govuk-input" id="integer_field" name="integer_field" type="text" aria-describedby="integer_field-hint" required="required">
+        - <input class="govuk-input" id="integer_field" name="integer_field" type="text" value="" aria-describedby="integer_field-hint" required="required">
         - <label class="govuk-label" for="integer_field">\s*IntegerField\s*</label>
         - <div id="integer_field-hint" class="govuk-hint">\s*IntegerFieldHint\s*</div>
     test_output_sanitized:
@@ -269,7 +269,7 @@ TestDecimalField:
   tests:
     test_empty_get:
       expected_output:
-        - <input class="govuk-input" id="decimal_field" name="decimal_field" type="text" aria-describedby="decimal_field-hint" required="required">
+        - <input class="govuk-input" id="decimal_field" name="decimal_field" type="text" value="" aria-describedby="decimal_field-hint" required="required">
         - <label class="govuk-label" for="decimal_field">\s*DecimalField\s*</label>
         - <div id="decimal_field-hint" class="govuk-hint">\s*DecimalFieldHint\s*</div>
     test_output_sanitized:
@@ -381,7 +381,7 @@ TestCharacterCountField:
         - <textarea class="govuk-textarea govuk-textarea--error govuk-js-character-count" id="charactercount_field" name="charactercount_field" rows="5" aria-describedby="charactercount_field-info charactercount_field-hint charactercount_field-error" required="required"></textarea>
         - <label class="govuk-label" for="charactercount_field">\s*CharacterCountField\s*</label>
         - <p id="charactercount_field-error" class="govuk-error-message">\s*<span class="govuk-visually-hidden">\s*Error:\s*</span>\s*CharacterCountField is required\s*</p>
-        - <div class="govuk-form-group govuk-form-group--error">
+        - <div class="govuk-form-group govuk-form-group--error govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
         - <div id="charactercount_field-hint" class="govuk-hint">\s*CharacterCountFieldHint\s*</div>
         - <div id="charactercount_field-info" class="govuk-hint govuk-character-count__message">\s*You can enter up to 200 characters\s*</div>
 
@@ -696,7 +696,7 @@ TestNestedForm:
       expected_output:
         - <div class="govuk-form-group">
         - <label for="nested_form-0">Nested Form-0</label>
-        - <input class="govuk-input" id="nested_form-0-string_field" name="nested_form-0-string_field" type="text" aria-describedby="nested_form-0-string_field-hint" required="required">
+        - <input class="govuk-input" id="nested_form-0-string_field" name="nested_form-0-string_field" type="text" value="" aria-describedby="nested_form-0-string_field-hint" required="required">
         - <div id="nested_form-0-string_field-hint" class="govuk-hint">\s*StringFieldHint\s*</div>
     test_output_sanitized:
       request:

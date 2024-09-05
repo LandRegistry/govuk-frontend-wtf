@@ -106,7 +106,7 @@ class GovIterableBase(GovFormBase):
         params = {
             "name": field.name,
             "items": kwargs["items"],
-            "hint": {"text": field.description},
+            "hint": {"text": field.description} if field.description else None,
         }
 
         # Merge in any extra params passed in from the template layer

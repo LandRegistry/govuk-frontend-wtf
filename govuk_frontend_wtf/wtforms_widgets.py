@@ -1,4 +1,15 @@
-from wtforms.widgets.core import FileInput, Input, PasswordInput, Select, SubmitInput, TextArea, TextInput
+from typing import Any, Dict
+
+from wtforms import BooleanField, Field, SelectFieldBase  # Import for type hinting
+from wtforms.widgets.core import (
+    FileInput,
+    Input,
+    PasswordInput,
+    Select,
+    SubmitInput,
+    TextArea,
+    TextInput,
+)
 
 from govuk_frontend_wtf.gov_form_base import GovFormBase, GovIterableBase
 
@@ -18,9 +29,9 @@ class GovInput(GovFormBase, Input):
     to provide the ``value=`` HTML attribute.
     """
 
-    template = "govuk_frontend_wtf/input.html"
+    template: str = "govuk_frontend_wtf/input.html"
 
-    def __call__(self, field, **kwargs):
+    def __call__(self, field: Field, **kwargs: Any) -> Any:
         kwargs.setdefault("id", field.id)
         kwargs.setdefault("type", self.input_type)
         if "value" not in kwargs:
@@ -34,15 +45,15 @@ class GovInput(GovFormBase, Input):
 class GovTextInput(GovInput, TextInput):
     """Render a single-line text input."""
 
-    input_type = "text"
+    pass
 
 
 class GovPasswordInput(GovFormBase, PasswordInput):
     """Render a password input."""
 
-    template = "govuk_frontend_wtf/password.html"
+    template: str = "govuk_frontend_wtf/password.html"
 
-    def __call__(self, field, **kwargs):
+    def __call__(self, field: Field, **kwargs: Any) -> Any:
         kwargs.setdefault("id", field.id)
         return super().__call__(field, **kwargs)
 
@@ -57,10 +68,10 @@ class GovCheckboxesInput(GovIterableBase):
     construct of their own.
     """
 
-    template = "govuk_frontend_wtf/checkboxes.html"
-    input_type = "checkbox"
+    template: str = "govuk_frontend_wtf/checkboxes.html"
+    input_type: str = "checkbox"
 
-    def map_gov_params(self, field, **kwargs):
+    def map_gov_params(self, field: Field, **kwargs: Any) -> Dict[str, Any]:
         params = super().map_gov_params(field, **kwargs)
         params.setdefault(
             "fieldset",
@@ -76,14 +87,14 @@ class GovCheckboxesInput(GovIterableBase):
 class GovCheckboxInput(GovCheckboxesInput):
     """Render a single checkbox (i.e. a WTForms BooleanField)."""
 
-    def __call__(self, field, **kwargs):
+    def __call__(self, field: BooleanField, **kwargs: Any) -> Any:
         # We are subclassing GovCheckboxesInput which expects
         # the field to be an iterable yielding each checkbox "subfield"
         # In order to make our single BooleanField comply with this, we
         # need to provide it with a similar construct, but which only
         # yields a single checkbox
         class IterableField(object):
-            def __init__(self, field):
+            def __init__(self, field: BooleanField) -> None:
                 self.field = field
                 self.max = 1
 
@@ -94,21 +105,20 @@ class GovCheckboxInput(GovCheckboxesInput):
             def __next__(self):
                 if self.index < self.max:
                     self.index += 1
-
                     return self.field
                 else:
                     raise StopIteration
 
-            def __getattr__(self, name):
+            def __getattr__(self, name: str) -> Any:
                 return getattr(self.field, name)
 
         field_group = IterableField(field)
 
         return super().__call__(field_group, **kwargs)
 
-    def map_gov_params(self, field, **kwargs):
+    def map_gov_params(self, field: Field, **kwargs: Any) -> Dict[str, Any]:
         params = super().map_gov_params(field, **kwargs)
-        params.pop("fieldset")
+        params.pop("fieldset", None)  # Handle potential KeyError
         return params
 
 
@@ -118,10 +128,10 @@ class GovRadioInput(GovIterableBase):
     Uses the field label as the fieldset legend.
     """
 
-    template = "govuk_frontend_wtf/radios.html"
-    input_type = "radio"
+    template: str = "govuk_frontend_wtf/radios.html"
+    input_type: str = "radio"
 
-    def map_gov_params(self, field, **kwargs):
+    def map_gov_params(self, field: Field, **kwargs: Any) -> Dict[str, Any]:
         params = super().map_gov_params(field, **kwargs)
         params.setdefault(
             "fieldset",
@@ -141,9 +151,9 @@ class GovDateInput(GovFormBase):
     The field names MUST all be the same for this widget to work.
     """
 
-    template = "govuk_frontend_wtf/date.html"
+    template: str = "govuk_frontend_wtf/date.html"
 
-    def __call__(self, field, **kwargs):
+    def __call__(self, field: Field, **kwargs: Any) -> Any:
         kwargs.setdefault("id", field.id)
         if "value" not in kwargs:
             kwargs["value"] = field._value()
@@ -151,7 +161,7 @@ class GovDateInput(GovFormBase):
             kwargs["required"] = True
         return super().__call__(field, **kwargs)
 
-    def map_gov_params(self, field, **kwargs):
+    def map_gov_params(self, field: Field, **kwargs: Any) -> Dict[str, Any]:
         params = super().map_gov_params(field, **kwargs)
         day, month, year = [None] * 3
         if field.raw_data is not None:
@@ -215,9 +225,10 @@ class GovFileInput(GovInput, FileInput):
     :param multiple: allow choosing multiple files
     """
 
-    template = "govuk_frontend_wtf/file-upload.html"
+    template: str = "govuk_frontend_wtf/file-upload.html"
+    multiple: bool = False
 
-    def __call__(self, field, **kwargs):
+    def __call__(self, field: Field, **kwargs: Any) -> Any:
         # browser ignores value of file input for security
         kwargs["value"] = False
 
@@ -234,12 +245,12 @@ class GovSubmitInput(GovInput, SubmitInput):
     data on the field.
     """
 
-    template = "govuk_frontend_wtf/button.html"
+    template: str = "govuk_frontend_wtf/button.html"
 
-    def __call__(self, field, **kwargs):
+    def __call__(self, field: Field, **kwargs: Any) -> Any:
         return super().__call__(field, **kwargs)
 
-    def map_gov_params(self, field, **kwargs):
+    def map_gov_params(self, field: Field, **kwargs: Any) -> Dict[str, Any]:
         params = super().map_gov_params(field, **kwargs)
 
         params.setdefault("text", field.label.text)
@@ -254,9 +265,9 @@ class GovTextArea(GovFormBase, TextArea):
     `rows` and `cols` ought to be passed as keyword args when rendering.
     """
 
-    template = "govuk_frontend_wtf/textarea.html"
+    template: str = "govuk_frontend_wtf/textarea.html"
 
-    def __call__(self, field, **kwargs):
+    def __call__(self, field: Field, **kwargs: Any) -> Any:
         kwargs.setdefault("id", field.id)
         if "value" not in kwargs:
             kwargs["value"] = field._value()
@@ -271,9 +282,9 @@ class GovCharacterCount(GovFormBase, TextArea):
     `rows` and `cols` ought to be passed as keyword args when rendering.
     """
 
-    template = "govuk_frontend_wtf/charactercount.html"
+    template: str = "govuk_frontend_wtf/charactercount.html"
 
-    def __call__(self, field, **kwargs):
+    def __call__(self, field: Field, **kwargs: Any) -> Any:
         kwargs.setdefault("id", field.id)
         if "value" not in kwargs:
             kwargs["value"] = field._value()
@@ -293,9 +304,10 @@ class GovSelect(GovFormBase, Select):
     `(value, label, selected)`.
     """
 
-    template = "govuk_frontend_wtf/select.html"
+    template: str = "govuk_frontend_wtf/select.html"
+    multiple: bool = False
 
-    def __call__(self, field, **kwargs):
+    def __call__(self, field: SelectFieldBase, **kwargs: Any) -> Any:
         if self.multiple:
             raise Exception(
                 "Please do not render mutliselect elements as a select box"
@@ -311,14 +323,14 @@ class GovSelect(GovFormBase, Select):
         kwargs["items"] = []
 
         # Construct select box choices
-        for val, label, selected, render_kw in field.iter_choices():
+        for val, label, selected, _render_kw in field.iter_choices():
             item = {"text": label, "value": val, "selected": selected}
 
             kwargs["items"].append(item)
 
         return super().__call__(field, **kwargs)
 
-    def map_gov_params(self, field, **kwargs):
+    def map_gov_params(self, field: Field, **kwargs: Any) -> Dict[str, Any]:
         params = super().map_gov_params(field, **kwargs)
 
         params["items"] = kwargs["items"]

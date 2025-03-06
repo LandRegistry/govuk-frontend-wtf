@@ -1,124 +1,137 @@
+from typing import Any, Dict
+
 from flask import render_template
 from markupsafe import Markup
+from wtforms import Field, FieldList
 
 from govuk_frontend_wtf.main import merger
 
 
-class GovFormBase(object):
-    """Collection of helpers
+class GovFormBase:
+    """
+    Base class for rendering GOV.UK Frontend components using WTForms fields.
 
-    These are mixed into the WTForms classes which we are subclassing
-    to provide extra functionality.
-
-    Some of our subclasses then extend these base utilities for their
-    specific use cases
+    This class provides common functionality for mapping WTForms field parameters
+    to the parameters expected by GOV.UK Frontend macros.  Subclasses should
+    define the `template` attribute to specify the Jinja2 template to render.
     """
 
-    def __call__(self, field, **kwargs):
+    template: str  # Template filename for rendering the GOV.UK component
+
+    def __call__(self, field: Field, **kwargs: Any) -> Markup:
+        """
+        Renders the GOV.UK Frontend component for the given WTForms field.
+
+        Args:
+            field: The WTForms field to render.
+            **kwargs: Additional keyword arguments to pass to the template.
+
+        Returns:
+            A Markup object containing the rendered HTML.
+        """
         return self.render(self.map_gov_params(field, **kwargs))
 
-    def map_gov_params(self, field, **kwargs):
-        """Map WTForms' html params to govuk macros
-
-        Taking WTForms' output, we need to map it to a params dict
-        which matches the structure that the govuk macros are expecting
+    def map_gov_params(self, field: Field, **kwargs: Any) -> Dict[str, Any]:
         """
-        params = {
-            "id": kwargs["id"],
-            "name": field.name,
-            "label": {"text": field.label.text},
-            "attributes": {},
-            "hint": {"text": field.description} if field.description else None,
+        Maps WTForms field parameters to GOV.UK Frontend macro parameters.
+
+        This method handles the translation of common WTForms attributes (like
+        `label`, `description`, `errors`) into the structure expected by the
+        GOV.UK Frontend macros.  It also merges additional keyword arguments
+        provided to the `__call__` method.
+
+        Args:
+            field: The WTForms field.
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            A dictionary containing the parameters for the GOV.UK Frontend macro.
+        """
+        params: Dict[str, Any] = {
+            "id": kwargs.pop("id", None),  # Extract 'id' if present, otherwise None
+            "name": field.name,  # Use the field's name attribute
+            "label": {"text": field.label.text},  # Create label dict
+            "attributes": {},  # Initialize attributes dictionary
+            "hint": (
+                {"text": field.description} if field.description else None
+            ),  # Create hint dict if description exists
         }
 
-        if "value" in kwargs:
-            params["value"] = kwargs["value"]
-            del kwargs["value"]
+        params["value"] = kwargs.pop("value", None)  # Extract 'value'
+        params["type"] = kwargs.pop("type", None)  # Extract 'type'
 
-        # Not all form elements have a type so guard against it not existing
-        if "type" in kwargs:
-            params["type"] = kwargs["type"]
-            del kwargs["type"]
+        kwargs.pop("items", None)  # Remove 'items' if present
 
-        # Remove items that we've already used from the kwargs
-        del kwargs["id"]
-        if "items" in kwargs:
-            del kwargs["items"]
+        params = self.merge_params(params, kwargs.pop("params", {}))  # Merge any extra parameters
 
-        # Merge in any extra params passed in from the template layer
-        if "params" in kwargs:
-            params = self.merge_params(params, kwargs["params"])
-
-            # And then remove it, to make sure it doesn't make it's way into the attributes below
-            del kwargs["params"]
-
-        # Map error messages
         if field.errors:
-            params["errorMessage"] = {"text": field.errors[0]}
+            params["errorMessage"] = {"text": field.errors[0]}  # Add error message
 
-        # And then Merge any remaining attributes directly to the attributes param
-        # This catches anything set in the more traditional WTForms manner
-        # i.e. directly as kwargs passed into the field when it's rendered
-        params["attributes"] = self.merge_params(params["attributes"], kwargs)
+        params["attributes"].update(kwargs)  # Merge remaining kwargs into attributes
 
-        # Map attributes such as required="True" to required="required"
+        # Efficiently set boolean attributes. If value is True, use key as string
         for key, value in params["attributes"].items():
             if value is True:
                 params["attributes"][key] = key
 
         return params
 
-    def merge_params(self, a, b):
+    def merge_params(self, a: Dict[str, Any], b: Dict[str, Any]) -> Dict[str, Any]:
+        """Merges two dictionaries using the govuk_frontend_wtf merger."""
         return merger.merge(a, b)
 
-    def render(self, params):
+    def render(self, params: Dict[str, Any]) -> Markup:
+        """Renders the GOV.UK Frontend template with the provided parameters."""
         return Markup(render_template(self.template, params=params))
 
 
 class GovIterableBase(GovFormBase):
-    def __call__(self, field, **kwargs):
-        kwargs.setdefault("id", field.id)
+    """
+    Base class for rendering iterable GOV.UK Frontend components (e.g., checkboxes, radio buttons).
 
-        if "required" not in kwargs and "required" in getattr(field, "flags", []):
-            kwargs["required"] = True
+    Extends `GovFormBase` to handle WTForms `FieldList` objects, mapping them
+    to the GOV.UK Frontend's item-based components.
+    """
 
-        kwargs["items"] = []
+    def __call__(self, field: FieldList, **kwargs: Any) -> Markup:
+        """Renders the GOV.UK Frontend iterable component for the given FieldList."""
+        kwargs.setdefault("id", field.id)  # Set default id
 
-        # This field is constructed as an iterable of subfields
-        for subfield in field:
-            item = {"text": subfield.label.text, "value": subfield._value()}
+        # Safely get flags, handle case where flags attribute might not exist
+        kwargs["required"] = kwargs.get(
+            "required", "required" in getattr(field, "flags", [])
+        )  # Check for 'required' flag
 
-            if getattr(subfield, "checked", subfield.data):
-                item["checked"] = True
-
-            kwargs["items"].append(item)
+        kwargs["items"] = [
+            {
+                "text": subfield.label.text,  # Text for item
+                "value": subfield._value(),  # Value for item
+                "checked": getattr(subfield, "checked", subfield.data),  # Checked status
+            }
+            for subfield in field  # Iterate through subfields
+        ]
 
         return super().__call__(field, **kwargs)
 
-    def map_gov_params(self, field, **kwargs):
-        """Completely override the params mapping for this input type
-
-        It bears little resemblance to that of a normal field
-        because these fields are effectively collections of
-        fields wrapped in an iterable
+    def map_gov_params(self, field: FieldList, **kwargs: Any) -> Dict[str, Any]:
         """
+        Maps parameters for iterable fields to GOV.UK Frontend macro parameters.
 
-        params = {
+        Handles merging of additional parameters passed via the 'params' keyword argument.
+        """
+        params: Dict[str, Any] = {
             "name": field.name,
-            "items": kwargs["items"],
+            "items": kwargs["items"],  # type: ignore[typeddict-item]
             "hint": {"text": field.description},
         }
 
-        # Merge in any extra params passed in from the template layer
         if "params" in kwargs:
-            # Merge items individually as otherwise the merge will append new ones
-            if "items" in kwargs["params"]:
-                for index, item in enumerate(kwargs["params"]["items"]):
-                    item = self.merge_params(params["items"][index], item)
-
-                del kwargs["params"]["items"]
-
-            params = self.merge_params(params, kwargs["params"])
+            extra_params: Dict[str, Any] = kwargs["params"]
+            if "items" in extra_params:
+                for i, item in enumerate(extra_params["items"]):  # type: ignore[typeddict-item]
+                    params["items"][i] = self.merge_params(params["items"][i], item)  # type: ignore[typeddict-item]
+                del extra_params["items"]
+            params = self.merge_params(params, extra_params)
 
         if field.errors:
             params["errorMessage"] = {"text": field.errors[0]}

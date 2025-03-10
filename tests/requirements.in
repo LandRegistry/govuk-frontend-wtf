@@ -3,5 +3,5 @@ email_validator==2.2.0
 flask-wtf==1.2.1
 flask==3.0.3
 govuk-frontend-jinja==3.4.0
-pytest-cov==5.0.0
+pytest-cov==6.0.0
 pyyaml==6.0.2
